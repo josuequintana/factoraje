@@ -201,8 +201,9 @@
                 cashOutDataHistory.push(claim)
                 $scope.selectedClaims.list.push(claim.id);
                 $scope.selectedClaims.subTotal = $scope.selectedClaims.subTotal + claim.amount;
-                $scope.selectedClaims.fee = $scope.selectedClaims.fee + claimFee;
-                $scope.selectedClaims.total = $scope.selectedClaims.total + (claim.amount - claimFee);
+                $scope.selectedClaims.fee = $scope.selectedClaims.subTotal * 0.015;
+                $scope.selectedClaims.total = $scope.selectedClaims.subTotal - claimFee;
+
                 $scope.datacash++;
 
                 sumCashOutAmount(claim.amount)
@@ -214,8 +215,8 @@
                     return claim.id !== e.id
                 });
                 $scope.selectedClaims.subTotal = $scope.selectedClaims.subTotal - claim.amount;
-                $scope.selectedClaims.fee = $scope.selectedClaims.fee - claimFee;
-                $scope.selectedClaims.total = $scope.selectedClaims.total - (claim.amount - claimFee);
+                $scope.selectedClaims.fee = $scope.selectedClaims.subTotal * 0.015;
+                $scope.selectedClaims.total = $scope.selectedClaims.subTotal - claimFee;
                 $scope.datacash--;
                 discountTempCashOutAmount();
             }
