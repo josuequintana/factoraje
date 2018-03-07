@@ -144,6 +144,8 @@
             vm.cashOutAmount = 0;
             vm.cashOutCommission = 0;
             $scope.datacash = 0;
+            $scope.selectedClaims.subTotal = 0;
+            $scope.selectedClaims.list = [];
             // vm.cashOutTransactions = 0;
         }
 
