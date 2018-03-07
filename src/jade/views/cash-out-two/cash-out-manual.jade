@@ -1,0 +1,177 @@
+.two
+  .app-view-header.mb0
+      h3.text-22.text-bold.m0 Cash Out
+    p.mb-xl.text-medium Última Actualización 12/01/2016 a las 12:23 hrs
+  .row(ng-controller="CashOutVariableController as Cashout")
+
+    .panel
+      .row
+        .panel-body.p0
+          .col-md-6.bg-osigu-primary-green.shadow-z1
+            h2.text-green-dark.total.mt0 Total cobrado:
+            p.price.mb0 Q 100,594.98
+            span.text-green-dark.comision Comisión Osigu: Q1,509.02 (1.5%)
+            a.btn.bg-white-light.shadow-z1.col-sm-12.pt-lg.pb-lg.text-md.mt-xl(ng-click="Cashout.cashOutModalAlert()")
+               em.icon-osigu.align-middle
+               span.align-middle.text-green-botom.pt-sm
+                  |CASH OUT
+          .col-md-6
+            .row
+              .col-md-6
+                  h2.mt0.text-md.text-gray-dark Número de Facturas Cobrados:
+                  .space
+                    p.price.text-gray-dark {{datacash}}
+                      span.text-md de 100
+              .col-md-6
+               .mb-lg
+                 knob(knob-data='datacash', knob-options='optcash')
+    
+    //h3.text-22.text-bold.m0.pt.pb31 Detalle          
+    .panel.panel-default
+        .panel-body.p-sm
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                            //col.col-sm-2
+                            col(style="width: 16.66%;")
+                            col(style="width: 16.66%;")
+                            col(style="width: 25%;")
+                            col(style="width: 25%;")
+                            col(style="width: 16.66%;")
+                    thead.table-header
+                        tr
+                            //th.text-center # de Reclamo
+                            th.text-center Código
+                            th.text-center Fecha
+                            th.text-center # Factura
+                            th.text-center Monto
+                            th.text-center Acción
+                                
+                    tbody
+                        tr
+                            //td.text-center 487342 
+                            td.text-center 889324
+                            td.text-center 12/01/2016
+                            td.text-center 234872300
+                            td.text-center Q 3,829.00
+                            td.text-center
+                                input.c-checkbox#checkbox1(type='checkbox',  checked)
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                  input.c-checkbox#checkbox1(type='checkbox')
+                            
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    input.c-checkbox#checkbox1(type='checkbox')
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    input.c-checkbox#checkbox1(type='checkbox',  checked)
+                                    
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    input.c-checkbox#checkbox1(type='checkbox')
+                                    
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    input.c-checkbox#checkbox1(type='checkbox',  checked)
+      .row
+          .col-md-3
+          .col-md-3
+          .col-md-3
+          .col-md-3
+            .row
+             .col-md-12
+                a.shadow-z1.btn.btn-osigu-green.col-sm-12.pt-lg.pb-lg.text-md(ng-click="Cashout.cashOutModal()")
+                  em.icon-osigu.align-middle
+                  span.align-middle.text-gray-dark.pt-sm
+                     |Cash Out
+                               
+                            
+    .panel-footer.bg-white.text-center.mt-45.bt0
+        pagination.pagination(total-items='cashoutTotalItems', ng-model='paginationCurrentPage', max-size='5', boundary-links='true', rotate='false')        
+                    
+    
+    //modal controller
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out-variable/modal.html')
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center.pt0.p-xxl
+          h4.text-md.text-bold.mt0
+           | Confirmación
+          p.text-18.text-medium
+           | Por favor confirme que desea realizar Cash Out por:
+          p.text-hg.text-osigu-primary-blue.text-thin
+           | Q 5,034.94
+          span.text-green-dark.comision
+           | Comisión Osigu: Q 1,509.02 (1.5%)
+           
+          .table-responsive.mt
+            table.table.mb
+               colgroup
+                 col(style="width: 50%;")
+                 col(style="width: 50%;")
+               tbody
+                 tr
+                   td.text-left.text-thin.text-18 Ser pagado a
+                   td.text-left.text-medium.text-18 Nombre
+                 tr
+                   td.text-left.text-thin.text-18 Nombre de cuenta bancaria
+                   td.text-left.text-medium.text-18 Nombre Cuenta Bancaria
+                 tr
+                   td.text-left.text-thin.text-18 Número de cuenta bancaria
+                   td.text-left.text-medium.text-18 238478234000
+                 tr
+                   td.text-left.text-thin.text-18 Nombre del Banco
+                   td.text-left.text-medium.text-18 Nombre Oficial Del Banco
+          .modal-footer.b0.mt-sm.pt0.pb0
+            .row
+               a.btn.btn-osigu-green.shadow-z1.col-sm-12.pt-lg.pb-lg.text-md(ng-click='ok()')
+                 em.icon-osigu.align-middle.mr-lg.mb0
+                 span.align-middle.text-gray-dark.pt-sm
+                  |Cash Out
+                     
+
+
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out-variable/modal-alert.html')
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center.pt0.altert_cashout
+          em.fa.fa-exclamation-circle.text-27.red
+          h3.text-21.text-bold No es Posible Procesar la Solicitud
+          p.text-18.text-medium Usted aún no cuenta con el servicio de Cash Out, si desea contratar el servicio póngase en contacto con Sebastián Bianchi al número: 4504 - 6716.
+          .row
+            .col-md-12.text-center.mt-xl
+              button.mr.mb-sm.btn.btn-success(ng-click='ok()')
+                  | Aceptar
+            

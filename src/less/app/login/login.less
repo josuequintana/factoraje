@@ -1,0 +1,188 @@
+.box-login{
+	width: 370px;
+	margin: auto;
+}
+.osigu-login {
+    padding: 21px 20px 7px;
+    -webkit-box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.2);
+		background-color: #0d436f;
+}
+.login-bg{
+	background-image: none;
+	background-repeat: repeat-x;
+	background-position: center center;
+	background-color: #fff;
+	height: 100vh;
+	padding-top: 0;
+}
+.login{
+	.input-group-addon{
+		background-color: #fff;
+		border: 1px solid #e3e3e3;
+		padding-left: 10px;
+		padding-right: 10px;
+		i{
+			color: #d1d1d1;
+		}
+	}
+	.svg-osigu{
+		display: block;
+		margin: 45px auto 30px auto;
+	}
+	.input-group{
+		margin: 40px auto 0 auto;
+	}
+	.form-control{
+		border: 1px solid #e3e3e3;
+		border-left: none;
+	}
+	p{
+		color: #666666;
+		font-weight: normal;
+		font-size: 32px !important;
+		line-height: 0px;
+		margin: 25px auto 60px;
+	}
+	input{
+		font-size: 20px;
+		line-height: 20px;
+		padding-top: 13px;
+		padding-bottom: 13px;
+		height: auto;
+		&:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+    }
+    &:-webkit-autofill {
+        -webkit-text-fill-color: #000;
+    }
+	}
+	button{
+		margin: 40px auto 0px auto;
+		padding: 17px 0;
+		font-size: 20px;
+		transition: all 0.3s ease;
+		 -webkit-transition: all 0.3s ease;
+		 -moz-transition: all 0.3s ease;
+		 -o-transition: all 0.3s ease;
+		 -ms-transition: all 0.3s ease;
+		&:hover{
+			background-color: #e3e3e3 !important;
+			box-shadow: none;
+			transition: all 0.3s ease;
+		 -webkit-transition: all 0.3s ease;
+		 -moz-transition: all 0.3s ease;
+		 -o-transition: all 0.3s ease;
+		 -ms-transition: all 0.3s ease;
+		}
+	}
+	.forgot{
+		a{
+			margin: 50px auto;
+			display: block;
+			float: none;
+			font-size: 14px;
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+.loader {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+#wave {
+  height: 100px;
+  width: 100px;
+  fill: #fff;
+}
+
+#Line_1 {
+  -webkit-animation: osigu_load 1s infinite ease-in-out !important;
+          animation: osigu_load 1s infinite ease-in-out !important;
+  -webkit-animation-delay: 0.75s !important;
+          animation-delay: 0.75s !important;
+}
+
+#Line_2 {
+  -webkit-animation: osigu_load 1s infinite ease-in-out !important;
+          animation: osigu_load 1s infinite ease-in-out !important;
+  -webkit-animation-delay: 0.6s !important;
+          animation-delay: 0.6s !important;
+}
+
+#Line_3 {
+  -webkit-animation: osigu_load 1s infinite ease-in-out !important;
+          animation: osigu_load 1s infinite ease-in-out !important;
+  -webkit-animation-delay: 0.45s !important;
+          animation-delay: 0.45s !important;
+}
+
+#Line_4 {
+  -webkit-animation: osigu_load 1s infinite ease-in-out !important;
+          animation: osigu_load 1s infinite ease-in-out !important;
+  -webkit-animation-delay: 0.3s !important;
+          animation-delay: 0.3s !important;
+}
+
+#Line_5 {
+  -webkit-animation: osigu_load 1s infinite !important;
+          animation: osigu_load 1s infinite !important;
+  -webkit-animation-delay: 0.15s !important;
+          animation-delay: 0.15s !important;
+}
+
+@keyframes osigu_load {
+  100% { opacity: 1; }
+  50% { opacity: .1; }
+  100% { opacity: 1; }
+}
+
+.overlay_loading{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: #fff;
+	//opacity: .70;
+	top:0;
+	z-index: 12;
+}
+
+.loginErrMsg{
+	position: absolute;
+	width:370px;
+	margin: auto;
+	padding-top:8px;
+}
+.loginErrMsgConn{
+	position: absolute;
+	width:370px;
+	margin: auto;
+	padding-top:8px;
+}
+
+.text-impulso-camex {
+	color: #0d436f;
+}
+
+
+.modal-open {
+	.modal {
+		overflow-y: hidden;
+	}
+}

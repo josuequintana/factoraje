@@ -1,0 +1,31 @@
+// START header
+.app-view-header.mt0
+    h3.text-22.text-bold.m0 Tabla de Liquidaciones
+// END header
+// START products content
+div(ng-controller="SettlementsListController as settlements")
+  .panel.panel-default
+      .panel-body.p-sm
+          .table-responsive
+              table.table.table-striped.blue-table.table-bordered
+                  thead.table-header
+                      tr
+                          th.text-center.text-18(style="width: 20%;") No. de Liquidaci&#243;n
+                          th.text-center.text-18(style="width: 25%;") Fecha de Inicio
+                          th.text-center.text-18(style="width: 25%;") Fecha de Corte
+                          th.text-center.text-18(style="width: 30%;") Monto
+                          //-th.text-center.text-18 Acciones
+                  tbody
+                      tr(ng-if='settlements.settlements.length === 0')
+                          td(colspan="5").bl0.br0.text-muted.text-center.text-gray-dark No hay registros disponibles
+                      tr(ng-repeat='products in settlements.settlements')
+                          td.bl0.br0.text-center.text-gray-dark
+                            a(ng-href="{{products.file_path}}")
+                                | {{ products.id }}
+                          td.text-center.text-gray-dark {{ products.date_from | date: 'dd/MM/yyyy' : 'UTC'}}
+                          td.text-center.text-gray-dark {{ products.date_to | date: 'dd/MM/yyyy' : 'UTC'}}
+                          td.text-center.text-gray-dark {{products.total_amount | currency: 'Q'}}
+                          //-td.bl0.br0.text-center
+                              a(ng-href="{{products.file_path}}") Descargar PDF
+    .panel-footer.bg-white.text-center.pt0.bt0
+      input-pager(max="{{total_pages}}", disabled="{{settlements.isLoadingResults}}")

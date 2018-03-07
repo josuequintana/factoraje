@@ -1,0 +1,22 @@
+// top navbar
+header(ng-include="'templates/top-navbar.html'", ng-class="app.theme.topbar").no-shadow
+
+// Sidebar
+aside(ng-include="'templates/sidebar.html'", ng-class="app.theme.sidebar")
+
+// Main
+section
+  // Content
+  .row
+    .col-xs-6
+    .col-xs-6
+      .row.alert.alert-danger.alert-dismissible.alertConn(ng-show="$root.showConnAlert",autoscroll="false")
+        .col-xs-4
+          i(aria-hidden="true").fa.fa-exclamation-circle &nbsp; Error de Conexión
+        //.col-xs-1.text-right
+          i.fa.fa-refresh.fa-spin.fa-fw
+
+  .app.p25.pr-lg(ui-view="", autoscroll="false", ng-class="app.views.animation")
+
+// Page footer
+//footer(ng-include="'templates/footer.html'")

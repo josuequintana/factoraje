@@ -1,0 +1,25 @@
+[{
+  "label": "Income",
+  "color": "#1976D2",
+  "data": [
+    ["Mar", 62],
+    ["Apr", 81],
+    ["May", 61],
+    ["Jun", 91],
+    ["Jul", 66],
+    ["Aug", 97],
+    ["Sep", 51]
+  ]
+}, {
+  "label": "Outcome",
+  "color": "#448AFF",
+  "data": [
+    ["Mar", 23],
+    ["Apr", 42],
+    ["May", 32],
+    ["Jun", 23],
+    ["Jul", 49],
+    ["Aug", 15],
+    ["Sep", 30]
+  ]
+}]

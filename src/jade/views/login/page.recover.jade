@@ -1,0 +1,22 @@
+.container.container-sm.animated.fadeInDown.recover
+  .center-block.mt-xl
+    // START panel
+    img.svg-osigu.text-center(src="app/img/newlogo.png", alt="App Logo", width="90px", height="65px")
+    .panel-body
+      p.pv.text-center.text-osigu-primary-blue
+        |Recovery Password
+        br
+        br
+        | We send the instruccions to recovery your password
+      form(role='form')
+        .row
+          .col-md-6.col-md-offset-3
+            .input-group
+              span.input-group-addon
+                i(aria-hidden="true").fa.fa-envelope.fa-fw
+              input#resetInputEmail1.form-control(type='email', placeholder='Email', autocomplete="off")
+          .col-md-6.col-md-offset-3
+            .form-group.has-feedback
+              button.btn.btn-block.bg-osigu-primary-green.text-osigu-secondary-green(type='submit') Send
+            
+  // END panel

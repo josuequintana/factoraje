@@ -1,0 +1,69 @@
+{
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "搜索.."
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "主导航"
+    },
+    "nav": {
+      "DASHBOARD": "仪表盘",
+      "CARDS": "牌",
+      "DOCUMENTATION": "文档",
+      "component": {
+        "COMPONENTS": "组件",
+        "BUTTON": "按钮",
+        "NOTIFICATION": "通知",
+        "BOOTSTRAPUI": "Bootstrap UI",
+        "PANEL": "板",
+        "PORTLET": "Portlet",
+        "GRID": "格",
+        "GRID_MASONRY": "网格砌体",
+        "TYPO": "活版印刷",
+        "PALETTE": "调色板"
+      },
+      "icon": {
+        "ICON": "图标",
+        "FEATHER": "Feather Icons",
+        "FA" : "Font Awesome",
+        "CLIMA": "Climacons",
+        "WEATHER": "Weather Icons"
+      },
+      "form": {
+        "FORM": "形式",
+        "INPUT": "输入",
+        "VALIDATION": "验证",
+        "WIZARD": "助手"
+      },
+      "CHART": "图表",
+      "table": {
+        "TABLE": "表",
+        "RESPONSIVE": "响应"
+      },
+      "map": {
+        "MAP": "地图",
+        "GOOGLE": "Google 地图",
+        "VECTOR": "Vector 地图"
+      },
+      "app": {
+        "APP": "应用程序",
+        "MAILBOX": "邮件",
+        "CALENDAR": "日历",
+        "TASK": "任务"
+      },
+      "pages": {
+        "PAGES": "网页",
+        "LOGIN": "注册",
+        "REGISTER": "注册",
+        "RECOVER": "找回密码",
+        "LOCK": "锁",
+        "BLANK": "空白模板",
+        "INVOICE": "发票",
+        "PRICE": "价格表",
+        "SEARCH": "搜索"
+      }
+    }
+  }
+}

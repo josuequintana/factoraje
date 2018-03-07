@@ -1,0 +1,11 @@
+div(ng-init="$root.trackEvent('triedToCashOut', {hasCashOut: $root.hasCashOut(), hasCashOutAuto: $root.hasCashOutAuto()});")
+
+    .modal-header.b0.text-right.pb0
+        i.fa.fa-times.text-bold.text-20.clickable(data-dismiss='modal', aria-hidden='true', ng-click="cancel()")
+    .modal-body.text-center.pt0.altert_cashout
+        i.fa.fa-meh-o.item-icon.text-45.block.text-center.m-auto.text-gray-dark.mb0.mt0
+        h1.text-22.text-center.text-bold.pt45.text-gray-dark.block.mb0.mt0 A&#250;n no est&#225;s afiliado al servicio
+        h2.text-22.text-center.text-bold.text-gray-dark.block.mb0.mt0 de Cash Out
+        p.text-18.text-center.text-gray-dark.mt18.mb0 Para contratar el servicio, comun&#237;cate al tel&#233;fono:
+        p.text-18.text-center.text-gray-dark.mt18.mb0.mt0 (+502) 2268-7677
+        a.btn.btn-default.btn-osigu-green.pl35.pr35.mt25.text-15(ng-click='ok()') Ok

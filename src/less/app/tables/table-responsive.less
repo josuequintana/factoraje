@@ -1,0 +1,98 @@
+/**
+   Component: table-extras.less
+*/
+
+//
+// Add support to components inside tables
+//
+
+.table {
+  > thead > tr > th {
+    padding: 14px 8px;
+    color: #888;
+    font-size: @font-size-base + 3;
+  }
+  > tbody > tr > td {
+    vertical-align: middle;
+    font-size: @font-size-base;
+    padding: 10px;
+    a{
+      text-decoration: none;
+      color: #606770;
+      display: block;
+    }
+    > .media {
+      img {
+        width: 36px;
+        height: 36px;
+        margin: 0 auto;
+      }
+    }
+  }
+  &.table-striped {
+     > tbody > tr:nth-of-type(even) {
+       background-color: @table-bg-accent;
+
+     }
+     > tbody > tr:nth-of-type(odd) {
+       background-color: @table-bg;
+     }
+   }
+   &.table-striped{
+     > tbody > .hover-table:nth-of-type(even){
+       &:hover{
+         background-color: #f3f3f3;
+       }
+     }
+     > tbody > .hover-table:nth-of-type(odd){
+       &:hover{
+         background-color: #efefef;
+       }
+     }
+   }
+  .checkbox {
+    margin: 0 auto;
+    width: 20px;
+  }
+
+  .progress {
+    margin-bottom: 0
+  }
+
+  .radial-bar {
+    margin-bottom: 0;
+    margin: 0 auto;
+  }
+}
+
+.jqstooltip { box-sizing: content-box;}
+
+// Extended table demos
+
+#table-res-1 {
+  th {
+    &:nth-child(1) {
+      width: 3%;
+    }
+    &:nth-child(2) {
+      width: 5%;
+    }
+    &:nth-child(7) {
+      width: 5%;
+    }
+    &:nth-child(9) {
+      width: 5%;
+    }
+  }
+}
+
+#table-res-2 {
+  th {
+    &:nth-child(1) {
+      width: 5%;
+    }
+    &:nth-child(3) {
+      width: 10%;
+    }
+  }
+}

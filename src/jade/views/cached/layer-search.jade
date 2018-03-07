@@ -1,0 +1,92 @@
+form(action="")
+  p.help-block Type and hit enter to search
+  input.form-control.input-huge(type="text", placeholder="I'm looking for...", ng-model="searchTerm")
+  button(type="submit").hidden Search
+.row
+  .col-md-4.col-sm-6.pv
+    h4.text-bold.pv-lg People (4)
+    br
+    ul.list-unstyled
+      // START User
+      li.media
+        .media-left.media-middle
+          // Contact avatar
+          .point-pin
+            a(href="")
+              img.media-object.img-circle.thumb40(src='app/img/user/05.jpg', alt="Image")
+            .point.point-success.point-lg
+        // Contact info
+        .media-body
+          .media-heading
+            a.text-md(href="") Marc Fuller
+      // END User
+      // START User
+      li: hr
+      li.media
+        .media-left.media-middle
+          // Contact avatar
+          .point-pin
+            a(href="")
+              img.media-object.img-circle.thumb40(src='app/img/user/06.jpg', alt="Image")
+            .point.point-success.point-lg
+        // Contact info
+        .media-body
+          .media-heading
+            a.text-md(href="") Wade Wade
+      // END User
+      // START User
+      li: hr
+      li.media
+        .media-left.media-middle
+          // Contact avatar
+          .point-pin
+            a(href="")
+              img.media-object.img-circle.thumb40(src='app/img/user/07.jpg', alt="Image")
+            .point.point-danger.point-lg
+        // Contact info
+        .media-body
+          .media-heading
+            a.text-md(href="") Alan Boyd
+      // END User
+      // START User
+      li: hr
+      li.media
+        .media-left.media-middle
+          // Contact avatar
+          .point-pin
+            a(href="")
+              img.media-object.img-circle.thumb40(src='app/img/user/01.jpg', alt="Image")
+            .point.point-danger.point-lg
+        // Contact info
+        .media-body
+          .media-heading
+            a.text-md(href="") Ryan Carr
+      // END User
+  .col-md-4.col-sm-6.pv
+    h4.text-bold.pv-lg Pages (3)
+    br
+    ul.list-unstyled
+      li.media
+        .media-left.media-middle
+          .thumb40.bg-success.circle.text-center.text-bold D
+        .media-body
+          .media-heading.clearfix
+            a.pull-left.text-md(ui-sref="app.dashboard", layer-morph-close="") Dashboard
+            small.text-muted.pull-right.mt 3 matches
+      li: hr
+      li.media
+        .media-left.media-middle
+          .thumb40.bg-purple.circle.text-center.text-bold P
+        .media-body
+          .media-heading.clearfix
+            a.pull-left.text-md(ui-sref="app.extras.profile", layer-morph-close="") Profile
+            small.text-muted.pull-right.mt 3 matches
+      li: hr
+      li.media
+        .media-left.media-middle
+          .thumb40.bg-danger.circle.text-center.text-bold P
+        .media-body
+          .media-heading.clearfix
+            a.pull-left.text-md(ui-sref="app.extras.projects", layer-morph-close="") Projects
+            small.text-muted.pull-right.mt 2 match(es)
+

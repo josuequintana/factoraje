@@ -1,0 +1,69 @@
+.settings-inner
+  .settings-button(ng-click="showSettings = !showSettings")
+    em.icon-cog
+  .settings(ng-controller="SettingsController as config")
+    .settings-inner
+      .settings-content
+        .pt.ph
+          p.text-muted THEMES
+          .clearfix.mb
+            .pull-left.wd-tiny.mb(ng-repeat="theme in config.themes")
+              .setting-color
+                label
+                  input(type="radio", name="setting-theme", ng-model="app.themeId", ng-value="$index", ng-change="config.setTheme($index)")
+                  span.icon-check
+                  ul.list-table
+                    li(ng-class="theme.sidebar")
+                    li(ng-class="theme.brand")
+                    li(ng-class="theme.topbar")
+        hr
+        .p
+          p.text-muted LAYOUT
+
+          .clearfix
+            p.pull-left Fixed
+            .pull-right
+              label.switch.switch-info
+                input(type='checkbox', ng-model="app.layout.isFixed", ng-disabled="app.layout.isMaterial")
+                span
+          .clearfix
+            p.pull-left Boxed
+            .pull-right
+              label.switch.switch-info
+                input(type='checkbox', ng-model="app.layout.isBoxed", ng-disabled="app.layout.isMaterial")
+                span
+          .clearfix
+            p.pull-left Material
+            .pull-right
+              label.switch.switch-info(ng-click="app.layout.isBoxed = false; app.layout.isFixed = true")
+                input(type='checkbox', ng-model="app.layout.isMaterial", ng-disabled="app.layout.isDocked || app.sidebar.isMini")
+                span
+        .p
+          p.text-muted SIDEBAR
+          .clearfix
+            p.pull-left Mini
+            .pull-right
+              label.switch.switch-info(ng-click="app.layout.isMaterial = false;")
+                input(type='checkbox', ng-model="app.sidebar.isMini")
+                span
+        .p
+          p.text-muted FOOTER
+          .clearfix
+            p.pull-left Hidden
+            .pull-right
+              label.switch.switch-info
+                input(type='checkbox', ng-model="app.footer.hidden")
+                span
+        hr
+        .p
+          // START Language list
+          .pull-right
+            .btn-group.btn-group-sm(dropdown='', is-open='language.listIsOpen')
+              a(dropdown-toggle="").dropdown-toggle.clickable
+                | {{language.selected}}
+                span.caret
+              ul.dropdown-menu.dropdown-menu-right.animated.fadeInLeft2(role='menu')
+                li(ng-repeat='(localeId, langName) in language.available')
+                  a(ng-click='language.set(localeId, $event)', href='') {{langName}}
+          // END Language list    
+          p.text-muted LANGUAGE

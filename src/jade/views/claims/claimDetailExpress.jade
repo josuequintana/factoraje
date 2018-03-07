@@ -1,0 +1,122 @@
+.row.m0(ng-controller="ClaimsDetailExpressController as expressCtrl")
+  .col-sm-6.col-lg-6.col-sm-12.fw-boxed.pr8.pl0
+    div
+      h3.text-22.text-bold.m0.pb-xl Detalle
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:50%")
+              col(style="width:50%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-bookmark
+                  strong ID
+                td {{express.id}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-calendar-o
+                  strong Fecha
+                td {{express.invoice.document_date | date: 'dd/MM/yyyy'}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-clock-o
+                  strong Hora
+                td {{express.invoice.document_date | date: 'HH:mm'}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-map-marker
+                  strong.ml-lg Sucursal
+                td {{express.provider_branch_name.toCapitalize()}}
+  .col-sm-6.col-lg-6.col-sm-12.fw-boxed.pl8.pr0
+    div
+      h3.text-22.text-bold.m0.pb-xl &#160;
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:50%")
+              col(style="width:50%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-file-text
+                  strong Tipo
+                td  Express
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-flag
+                  strong Estado
+                td(ng-class="expressCtrl.getProductStatusClassObj(express.status.toLowerCase())")  {{expressCtrl.expressStatusTraslate[express.status] || ""}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-money.text-18
+                  strong Total
+                td  {{express.invoice.amount.toFixed(2) | currency: 'Q' : 2 || 0 }}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-check
+                  strong IVR
+                td {{express.verification_code}}
+  .col-sm-12.col-lg-12.col-sm-12.fw-boxed.pr0.pl8
+    div
+      h3.text-22.text-bold.m0.pb-xl Factura
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-bookmark.text-18
+                  strong Factura
+                td {{express.invoice.document_number}}
+                td
+                  i(aria-hidden="true").fa.fa-money.text-18
+                  strong Total
+                td  Q{{express.invoice.amount.toFixed(2)}}
+                td
+                  i(aria-hidden="true").fa.fa-usd.text-18
+                  strong Copago
+                td  Q{{express.copayment.toFixed(2)}}
+  .col-sm-12.fw-boxed.pr0.pl0.pt18
+    h3.text-22.text-bold.m0 Productos
+    .panel-default.panel.mt-xl
+      .panel-body.p-sm
+        .table-responsive
+          table.table.blue-table.table-bordered
+            colgroup
+              col(style="width:10%")
+              col(style="width:40%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+            thead
+              tr
+                th.table-header.text-center.text-18 C&#243;digo
+                th.table-header.text-center.text-18 Nombre
+                th.table-header.text-center.text-18 Cantidad
+                th.table-header.text-center.text-18 Precio Unitario
+                th.table-header.text-center.text-18 Subtotal
+                th.table-header.text-center.text-18 Coaseguro
+                th.table-header.text-center.text-18 Total
+            tbody
+              tr(ng-if="express.items.length === 0")
+                td(colspan="6").bl0.br0.text-muted.text-center No hay registros disponibles
+              tr(ng-repeat="product in express.items")
+                td.bl0.br0.text-center {{product.product_id}}
+                td.text-left {{product.name.toCapitalize()}}
+                td.text-center {{product.quantity}}
+                td.bl0.br0.text-center {{product.price.toFixed(2) | currency: 'Q'}}
+                td.text-center {{product.quantity * product.price | currency: 'Q'}}
+                td.text-center {{product.coinsurance_percentage}}%
+                td.text-center {{ ((100 - product.coinsurance_percentage) / 100) * product.price.toFixed(2) | currency: 'Q'}}

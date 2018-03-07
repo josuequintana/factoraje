@@ -1,0 +1,82 @@
+// START header
+.app-view-header
+    h3 Authorizations
+// END header
+// START products content
+.row(ng-controller="AuthorizationsListController as authorizations")
+    .col-sm-12
+        // START row
+        .panel.panel-default
+            .panel-body
+                .row
+                    .col-sm-12.claims-main-table
+                        flot(dataset="authorizations.dataSet.authorizations", options="authorizations.flotOptionsDefault")
+                        .row
+                            .col-sm-12
+                                #legend-auth.legend-chart-custom
+        //h3 Analytics
+        //.row.secondary
+            .col-sm-12.col-md-4.fw-boxed.donut-chart-container
+                .panel
+                    .panel-body
+                        p.text-md
+                            | Top Insurers
+                            i(aria-hidden="true").fa.fa-map-marker.pull-right.text-md
+                        p.text-md
+                            | {{insureName}}
+                        .col-sm-12
+                            flot(dataset="authorizations.chartDonutDataset.insurers", options="authorizations.donutOptionsTopInsurers")
+                        .col-sm-12
+                            #legend-top-insurers.legend-piechart-custom.piechart-txt-sm
+            .col-sm-12.col-md-4.fw-boxed.donut-chart-container
+                .panel
+                    .panel-body
+                        p.text-md
+                            | Top Diagnosis
+                            i(aria-hidden="true").fa.fa-file-text.pull-right.text-md
+                        p.text-md
+                            | {{diagnosesName}}
+                        .col-sm-12
+                            flot(dataset="authorizations.chartDonutDataset.diagnoses", options="authorizations.donutOptionsTopDiagnoses")
+                        .col-sm-12
+                            #legend-top-diagnoses.legend-piechart-custom.piechart-txt-sm
+            .col-sm-12.col-md-4.fw-boxed.donut-chart-container
+                .panel
+                    .panel-body
+                        p.text-md
+                            | Top Doctors
+                            i(aria-hidden="true").fa.fa-medkit.pull-right.text-md
+                        p.text-md
+                            | {{doctorsName}}
+                        .col-sm-12
+                            flot(dataset="authorizations.chartDonutDataset.doctors", options="authorizations.donutOptionsTopDoctors")
+                        .col-sm-12
+                            #legend-top-doctors.legend-piechart-custom.piechart-txt-sm
+        h3 Authorizations Details
+        .panel-default
+            .panel-body
+                .table-responsive
+                    table.table.table-striped.blue-table
+                        colgroup
+                            col(style="width: 10%;")
+                            col(style="width: 30%;")
+                            col(style="width: 30%;")
+                            col(style="width: 15%;")
+                            col(style="width: 15%;")
+                        thead
+                            tr
+                                th.table-header.text-center ID
+                                th.table-header.text-center Date
+                                th.table-header.text-center Type
+                                th.table-header.text-center Product/Service
+                                th.table-header.text-center Actions
+                        tbody
+                            tr(ng-repeat="(key,value) in authorizations.authorizationsDetails")
+                                td.text-center {{value.id}}
+                                td.text-center {{$root.dateToGMT(value.created_at, 'MMM/dd/yyyy')}}
+                                td.text-center {{value.type.toCapitalize()}}
+                                td.text-center {{value.total_products}}
+                                td.text-center
+                                    a(ng-href='/#/app/authorizations/{{value.id}}') Details
+            .panel-footer
+                pagination.pagination-sm(total-items='authorizationTotalItems', ng-model='paginationCurrentPage', max-size='5', boundary-links='true', rotate='false')

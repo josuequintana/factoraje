@@ -1,0 +1,23 @@
+.sidebar-wrapper
+  .sidebar(ui-sidebar="")
+    .sidebar-nav
+      ul.nav
+        li.nav-heading
+          span.text-muded.ng-scope {{globalQueryParams.loggedProvider.slug.toCapitalize()}}
+
+        li(ui-sref-active="active")
+          a.text-18.pl0.pl-xxl(ui-sref='app.dashboard', title='Dashboard', ripple='')
+            i.fa.fa-pie-chart.mr25
+            span.text-medium Dashboard
+        li(ui-sref-active="active")
+          a.text-18.pl0.pl-xxl(ui-sref='app.cash-out-manual', title='Cash Out Manual', ripple='')
+            i.fa.fa-th-list.mr25
+            span.text-medium Descontar facturas
+        li(ui-sref-active="active")
+          a.text-18.pl0.pl-xxl(ui-sref='app.cash-out-history', title='Cash Out History', ripple='')
+            i.fa.fa-history.mr25
+            span.text-medium Historial
+        li
+          a.text-18.pl0.pl-xxl(ui-sref='page.login', ng-click='$root.logout();', title='Salir', ripple='')
+            i.fa.fa-power-off.mr25
+            span.text-medium Salir

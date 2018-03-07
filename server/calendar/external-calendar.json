@@ -1,0 +1,23 @@
+[
+  {
+    "type": "party",
+    "title": "Lunch",
+    "start": "01/01/2015",
+    "end": "01/02/2015",
+    "allDay": "false"
+  },
+  {
+    "type": "party",
+    "title": "Lunch 2",
+    "start": "01/01/2015",
+    "end": "01/02/2015",
+    "allDay": "false"
+  },
+  {
+    "type": "link",
+    "title": "Go google.com",
+    "start": "01/01/2015",
+    "end": "01/02/2015",
+    "url": "http://google.com/"
+  }
+]  

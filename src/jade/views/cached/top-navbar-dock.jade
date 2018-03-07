@@ -1,0 +1,36 @@
+// START Top Navbar
+nav.navbar.topnavbar(role='navigation', ng-controller="HeaderNavController as header")
+
+  // START button offset
+  .btn-offset
+    button(type="button", btn-layer-morph="", target="#layer-search", ripple="").btn.btn-info.btn-circle.btn-lg.shadow-z1
+      em.fa.fa-search
+  // START button offset
+
+  // START navbar header
+  .navbar-header(ng-class="app.theme.brand")
+    a.navbar-brand(ui-sref='app.dashboard') 
+      img.brand-logo(src="app/img/logo.png", alt="App Logo")
+    // Mobile buttons
+    .mobile-toggles
+      // Button to show/hide the header menu on mobile. Visible on mobile only.
+      a(href='', ng-click="header.toggleHeaderMenu()").menu-toggle.pull-left
+        em.fa.fa-navicon.fa-fw
+  // END navbar header
+
+  // START Nav wrapper
+  .nav-wrapper.collapse.navbar-collapse(collapse="header.headerMenuCollapsed")
+    // START Left navbar
+    ul.nav.navbar-nav
+      li
+        a(href='#/') Back
+      li.dropdown(dropdown="")
+        a.dropdown-toggle(href='', dropdown-toggle="") Dropdown
+        // START Dropdown menu
+        ul.dropdown-menu
+          // START list item
+          li: a(href="") Sub menu 1
+          li: a(href="") Sub menu 2
+          li: a(href="") Sub menu 3
+    // END Left navbar
+// END Top Navbar

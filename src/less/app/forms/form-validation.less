@@ -1,0 +1,23 @@
+/**
+   Component: form-validation.less
+*/
+ 
+//
+// Styles for validation results 
+//
+
+
+.form-validate {
+  .form-control {
+    
+    // Invalid input
+    &.ng-dirty.ng-invalid {
+        border-color: @brand-danger;
+    }
+    // Valid input
+    &.ng-dirty.ng-valid,
+    &.ng-dirty.ng-valid:focus {
+        border-color: @brand-success;
+    }
+  }
+}

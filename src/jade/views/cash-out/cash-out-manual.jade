@@ -1,0 +1,139 @@
+.two
+  .app-view-header.mb0
+      h3.text-22.text-bold.m0.pb31 Factoring
+  .row(ng-controller="CashOutVariableController as Cashout")
+    .panel
+      .row
+        .panel-body.p0
+          .col-md-6.bg-osigu-primary-green.shadow-z1
+            h2.text-white.total.mt0 Total:
+            p.text-white.price.mb0 {{Cashout.cashOutAmount | currency:'Q':2 || '0'}}
+            //-span.text-green-dark.comision Comisión Osigu: {{Cashout.cashOutPercentage || 0 | currency: "Q" : 2}}
+
+            a.btn.bg-white-light.shadow-z1.col-sm-12.pt-lg.pb-lg.text-md.mt-xl(ng-click="Cashout.cashOutModal()")
+               span.align-middle.text-green-botom.pt-sm(style="color: #0d436f;font-size: 26px;font-weight: 700;")
+                  | Cash Out
+          .col-md-6
+            .row
+              .col-md-6
+                  h2.mt0.text-md.text-gray-dark.text-bold Facturas Seleccionados:
+                  .space
+                    p.price.text-gray-dark {{datacash}}
+                      span.text-md de {{Cashout.cashOutTransactions}}
+              .col-md-6
+               .mt-xl(ng-if="Cashout.cashOutTransactions > 0")
+                 knob(knob-data='datacash', knob-options='optcash')
+    .panel.panel-default
+        .panel-body.p-sm
+            pre {{reverse}}
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                            //-col.col-sm-2
+                            col(style="width: 16.66%;")
+                            col(style="width: 16.66%;")
+                            col(style="width: 25%;")
+                            col(style="width: 25%;")
+                            col(style="width: 16.66%;")
+                    thead.table-header
+                        tr
+                            //-th.text-center # de Reclamo
+                            th.text-center Código
+                            th.text-center Fecha
+                            th.text-center Factura
+                            th.text-center Monto
+                            th.text-center Cash Out
+                                
+                    tbody
+                        tr(ng-if="claimsListOfTransactions.length === 0")
+                            td(colspan="5").bl0.br0.text-muted.text-center No hay registros disponibles
+                        tr(ng-repeat="(key,value) in claimsListOfTransactions | orderBy:'id':Cashout.reverse")
+                            td.bl0.br0.text-center {{value.id}}
+                            td.text-center {{value.created_at | date: 'dd/MM/yyyy' : 'UTC'}}
+                            td.text-center {{value.document_number}}
+                            td.text-center {{value.amount | currency : 'Q'}}
+                            td.bl0.br0.text-center
+                              input.c-checkbox(type='checkbox', ng-click="chooseClaim(value)", ng-checked="isClaimSelected(value.id)")
+      .panel-footer.bg-white.text-center.mt-45.bt0
+        input-pager(max="{{total_pages}}", disabled="{{Cashout.isLoadingResults}}")
+                          
+      .row
+          .col-md-4
+          .col-md-3
+          .col-md-5.p0
+            .row
+              .col-md-6.p0
+                 p.text-md.mt  Total:
+                 //--span.mt-lg.text-gray-dark (-) Comisión:
+                 p.text-md.mt  Monto a Recibir:
+               .col-md-6
+                 h2.mt.text-lg.text-right.text-osigu-primary-blue.ng-binding.mt0.mb0 {{selectedClaims.subTotal || '0' | currency: "Q" : 2}}
+                 //--p.text-right.text-gray-dark {{selectedClaims.fee || '0' | currency: "Q" : 2}}
+                 h2.mt.text-lg.text-right.text-osigu-primary-blue.ng-binding.mt0.mb0 {{selectedClaims.total || '0' | currency:"Q" : 2}}
+               .col-md-12.p0
+                  a.shadow-z1.btn.btn-osigu-green.col-sm-12.pt-lg.pb-lg.text-md(ng-click="Cashout.cashOutModal()")
+                    span.align-middle.text-white.pt-sm
+                       | Cash Out
+
+    //-modal controller
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out-manual/modal.html')
+        
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center.pt0.p-xxl
+          h4.text-md.text-bold.mt0
+           | Confirmación
+          p.text-18.text-medium
+           | Por favor confirme que desea realizar Cash Out por:
+          p.text-hg.text-osigu-primary-blue.text-thin
+           | {{amount | currency:'Q':2 || '0'}}
+          span.text-green-dark.comision
+           | Comisión : {{commission | currency:'Q':2 || '0'}} (1.5%)
+           
+           
+          .table-responsive.mt
+            table.table.mb
+               colgroup
+                 col(style="width: 50%;")
+                 col(style="width: 50%;")
+               tbody
+                 tr
+                   td.text-left.text-thin.text-18 Ser pagado a
+                   td.text-left.text-medium.text-18 Nombre
+                 tr
+                   td.text-left.text-thin.text-18 Nombre de cuenta bancaria
+                   td.text-left.text-medium.text-18 Nombre Cuenta Bancaria
+                 tr
+                   td.text-left.text-thin.text-18 Número de cuenta bancaria
+                   td.text-left.text-medium.text-18 238478234000
+                 tr
+                   td.text-left.text-thin.text-18 Nombre del Banco
+                   td.text-left.text-medium.text-18 Nombre Oficial Del Banco
+          .modal-footer.b0.mt-sm.pt0.pb0
+            .row
+               a.btn.btn-osigu-green.shadow-z1.col-sm-12.pt-lg.pb-lg.text-md(ng-click='ok()')
+                 span.align-middle.text-white.pt-sm
+                  |Cash Out
+                     
+
+
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out-manual/modal-alert.html')
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center.pt0.altert_cashout
+          em.fa.fa-meh-o.text-lg.text-osigu-primary-blue
+          h3.text-21.text-bold A&uacute;n no est&aacute;s afiliado al servicio de Cash Out
+          p.text-18.text-medium Para contratar el servicio, comun&iacute;quese al tel&eacute;fono:
+            br
+            | (+502) 2360-3241
+          .row
+            .col-md-12.text-center.mt-xl
+              button.mr.mb-sm.btn.btn-success(ng-click='ok()')
+                  | Aceptar
+            

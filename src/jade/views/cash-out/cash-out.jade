@@ -1,0 +1,78 @@
+.two
+  .app-view-header.mb0.mt0
+      h3.text-22.text-bold.m0.pb31 Cash Out
+  .row(ng-controller="CashOutController as Cashout")
+
+    .panel
+      .row
+        .panel-body.p0
+          .col-md-6.pl40.pr40.pt70.pb70.bg-osigu-primary-green.shadow-z1.h280
+            h2.text-green-dark.total.mt0 Total:
+            p.price.mb0 {{Cashout.automatic.total_cashout | currency:'Q': 2 || '0'}}
+               em.icon-osigu.align-middle
+               span.align-middle.text-green-botom.pt-sm
+                  |CASHOUT
+          .col-md-6.pl70.pr70.pt70.h280
+            .row
+              .col-md-12
+                  h2.mt0.text-md.text-gray-dark Facturas:
+                  .space
+                    p.price.text-gray-dark {{Cashout.automatic.total_transactions | currency:' ': 0 || '0'}}
+                 knob(knob-data='datacash', knob-options='optcash')        
+    h3.text-22.text-bold.m0.pb31.pt31 Detalle
+    .panel.panel-default
+        .panel-body.p-sm
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                            col(style="width: 33.33%;")
+                            col(style="width: 33.33%;")
+                            col(style="width: 33.33%;")
+                    thead.table-header
+                        tr
+                            th.text-center Registro
+                            th.text-center Fecha
+                            th.text-center Total
+                                
+                    tbody
+                        tr(ng-if="Cashout.settlements.length === 0")
+                            td(colspan="5").bl0.br0.text-muted.text-center.text-gray-dark No hay registros disponibles
+                        tr.hover-table(ng-repeat='products in Cashout.settlements')
+                            td.bl0.br0.text-center 
+                              a.clickable(ng-href="{{ products.file_path }}", ng-click="$root.trackEvent('downloadCashOut', {cashout: products.cash_out_id})")
+                                | {{ products.cash_out_id }}
+                            td.text-center
+                              a.clickable(ng-href="{{ products.file_path }}", ng-click="$root.trackEvent('downloadCashOut', {cashout: products.cash_out_id})") {{ products.date | date: 'dd/MM/yyyy' : 'UTC'}}
+                              a.clickable(ng-href="{{ products.file_path }}") {{ products.transference_number || "Procesando"}}
+                            td.text-center
+                              a.clickable(ng-href="{{ products.file_path }}", ng-click="$root.trackEvent('downloadCashOut', {cashout: products.cash_out_id})")
+                                span {{products.real_payment | currency: 'Q'}}
+                            
+      
+                            
+    .panel-footer.bg-white.text-center.mt-45.bt0
+      input-pager(max="{{total_pages}}", disabled="{{Cashout.isLoadingResults}}")
+    
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out/modal.html')
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center 
+          h4.text-md.text-bold
+           | Confirmación
+          p
+           | Por favor confirme que desea realizar Cash Out por:
+          p.text-hg.text-osigu-primary-blue.text-thin
+           | Q 5,034.94
+          span.text-green-dark.comision
+           | Comisión Osigu: Q 1,509.02 (1.5%)
+          .modal-footer.b0.mt-xl 
+            .row
+              .col-md-6.text-right 
+                button.mr.mb-sm.btn.btn-default.borde-grey-dark(ng-click='cancel()')
+                 | Cancelar
+              .col-md-6.text-left
+                button.mr.mb-sm.btn.btn-success(ng-click='ok()')
+                 | Aceptar

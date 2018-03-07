@@ -1,0 +1,84 @@
+doctype html
+
+<!--[if IE 9 ]>    <html class="ie9" lang="en" ng-app="naut"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+html(lang="en", ng-app="naut")
+  <!--<![endif]-->
+
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+    meta(name='description', content='{{app.description}}')
+    meta(name='keywords', content='')
+
+    title(data-ng-bind="pageTitle()") Providers Dashboard
+
+    // build:css app/css/application.css
+    link(rel='stylesheet', href="app/css/bootstrap.css")
+    link(rel='stylesheet', href="app/css/styles.css")
+
+    // Toaster Preload
+    link(rel='stylesheet', href="vendor/angularjs-toaster/toaster.css")
+    // endbuild
+    script(src='https://use.typekit.net/yok8vgl.js')
+    script.
+      try{Typekit.load({ async: true });}catch(e){}
+
+    script.
+      function filterEmptyProperties (obj) {
+        for (var i in obj) {
+          if (obj[i] === null || obj[i] === undefined || obj[i] === "") {
+            delete obj[i];
+          }
+        }
+        return obj;
+      };
+    script(type='text/javascript').
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+      analytics.load("ZNbI081mEa2bh25Y1EnmN6R9YR3W1UsO");
+      }}();
+
+
+
+
+  body(ng-cloak, ng-class="{ 'layout-fixed' : app.layout.isFixed, 'layout-boxed' : app.layout.isBoxed, 'layout-dock' : app.layout.isDocked, 'layout-material': app.layout.isMaterial, 'aside-offscreen' : app.sidebar.isOffscreen, 'aside-mini' : app.sidebar.isMini, 'footer-hidden': app.footer.hidden, 'in-app': !$state.includes('page')}")
+    .app-container(data-ui-view="", data-autoscroll='false', ng-controller="CoreController")
+    toaster-container(toaster-options="{'position-class': 'toast-top-right', 'close-button':true}")
+    .layer-morph-overlay
+        .layer-morph-inner.bg-info
+    .layer-morph-close(layer-morph-close="")
+        em.icon-cross
+
+    // build:vendor app/js/vendor.js
+    script(src="vendor/modernizr/modernizr.js")
+    script(src="vendor/jquery/dist/jquery.js")
+    script(src="vendor/angular/angular.js")
+    script(src="vendor/angular-i18n/angular-locale_es-gt.js")
+    script(src="vendor/angular-route/angular-route.js")
+    script(src="vendor/angular-cookies/angular-cookies.js")
+    script(src="vendor/angular-animate/angular-animate.js")
+    script(src="vendor/angular-touch/angular-touch.js")
+    script(src="vendor/angular-sanitize/angular-sanitize.js")
+    script(src="vendor/angular-resource/angular-resource.js")
+    script(src="vendor/angular-translate/angular-translate.js")
+    script(src="vendor/ngstorage/ngStorage.js")
+    script(src="vendor/angular-ui-router/release/angular-ui-router.js")
+    script(src="vendor/angular-ui-utils/ui-utils.js")
+    script(src="vendor/angular-translate-loader-url/angular-translate-loader-url.js")
+    script(src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js")
+    script(src="vendor/angular-translate-storage-local/angular-translate-storage-local.js")
+    script(src="vendor/angular-translate-storage-cookie/angular-translate-storage-cookie.js")
+    script(src="vendor/angular-bootstrap/ui-bootstrap-tpls.js")
+    script(src="vendor/angular-dynamic-locale/dist/tmhDynamicLocale.js")
+    script(src="vendor/oclazyload/dist/ocLazyLoad.js")
+    script(src="vendor/angular-loading-bar/build/loading-bar.js")
+    script(src="vendor/ng-idle/angular-idle.js")
+    // Toaster preload
+    script(src="vendor/angularjs-toaster/toaster.js")
+    // endbuild
+    // build:js app/js/application.js
+    - each js in scripts
+        script(src=js)
+    script(src='app/js/templates.js')
+    // endbuild

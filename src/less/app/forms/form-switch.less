@@ -1,0 +1,111 @@
+/**
+   Component: form-switch.less
+*/
+
+/**
+ * Custom form elements
+ *    - Switch
+ */
+
+// Supports radio and checkbox
+
+@switch-wd: 40px;
+@switch-hg: @switch-wd/2;
+
+@switch-lg-wd: 50px;
+@switch-lg-hg: @switch-lg-wd/2;
+
+@switch-sm-wd: 30px;
+@switch-sm-hg: @switch-sm-wd/2;
+
+@switch-fg-color: @brand-primary;
+
+.switch {
+  .form-control {
+    padding-top: 7px;
+    margin-bottom: 0;
+  }
+}
+
+.switch * {
+  cursor: pointer;
+}
+
+.switch input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.switch { 
+  & span {
+    position: relative;
+    display: inline-block;
+    width: @switch-wd; height: @switch-hg;
+    background-color: transparent;
+    // border: 1px solid @ui-bg-color;
+    border-radius: 100px;
+    transition: all .5s;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.25) inset;
+  }
+
+  & span:after {
+   content: "";
+   position: absolute;
+   background-color: #fff;
+   top: 1px; left: 0;
+   height: @switch-hg - 2; width: @switch-hg - 2;
+   border: 1px solid #ddd;
+   border-radius: 400px;
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+   -webkit-transition: all .2s;
+  } 
+  
+  &.switch-lg { .switch-variant(@switch-lg-wd, @switch-lg-hg); }
+  &.switch-sm { .switch-variant(@switch-sm-wd, @switch-sm-hg); }
+}
+
+
+.switch input:checked + span {
+  background-color: @switch-fg-color;
+  border-color: @switch-fg-color;
+  transition: all .5s;
+}
+
+.switch input:checked + span:after {
+  left: 50%;
+  transition: all .2s;
+}
+
+.switch input:disabled + span {
+  background-color: @gray-light !important;
+  border-color: @gray-light !important;
+}
+
+.switch-variant(@wd, @hg) {
+  & span {
+    width: @wd; height: @hg;
+  }
+
+  & span:after {
+   height: @hg - 2; width: @hg - 2;
+  }  
+}
+
+.switch-primary   { .switch-variant(@brand-primary); }
+.switch-success   { .switch-variant(@brand-success); }
+.switch-info      { .switch-variant(@brand-info); }
+.switch-warning   { .switch-variant(@brand-warning); }
+.switch-danger    { .switch-variant(@brand-danger); }
+.switch-inverse   { .switch-variant(@brand-inverse); }
+.switch-amber     { .switch-variant(@brand-amber); }
+.switch-pink      { .switch-variant(@brand-pink); }
+.switch-purple    { .switch-variant(@brand-purple); }
+.switch-orange    { .switch-variant(@brand-orange); }
+
+.switch-variant(@color) {
+  &.switch input:checked + span {
+    background-color: @color;
+    border-color: @color;
+  }  
+}

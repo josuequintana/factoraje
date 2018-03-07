@@ -1,0 +1,87 @@
+.number-widgets {
+  .panel {
+    min-height: 213px;
+
+    .number-text {
+      font-size: 50px;
+    }
+    @media screen and (min-width: @screen-md) and (max-width: @screen-lg) {
+      .number-text {
+        font-size: 35px;
+      }
+    }
+  }
+}
+
+.active {
+  a {
+    i {
+      color: @osigu-primary-blue;
+    }
+    span {
+      color: @osigu-primary-blue;
+    }
+    .icon-osigu {
+      background: url("/app/img/osigu-icon-blue.png") no-repeat bottom;
+    }
+  }
+}
+
+.bubble {
+  font-size: @font-size-base * 1.5 !important;
+  top: -45px !important;
+}
+
+.donut-chart-container .panel .panel-body {
+  min-height: 340px;
+}
+
+.icon-osigu-white {
+  background: url("/app/img/osigu-icon-white.png") no-repeat bottom;
+}
+
+.icon-osigu-gray {
+  background: url("/app/img/osigu-icon-gray.png") no-repeat bottom;
+}
+
+.item-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.osigu-cash-out-box {
+  color: #ffffff;
+  .panel {
+    background-color: #1d9eff !important;
+    .panel-body {
+      .osigu-1stp {
+        color: #ffffff !important;
+        margin-bottom: 20px !important;
+        em {
+          margin-top: 0;
+          background: url("/app/img/osigu-icon-white.png") no-repeat bottom !important;
+        }
+      }
+      .osigu-2scp {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        color: #ffffff !important;
+        font-size: 50px !important;
+        line-height: 50px !important;
+      }
+      a {
+        width: 132px;
+        padding: 6px 15px 6px 15px;
+        margin: 30px auto 0 auto;
+        background-color: #1fffa9;
+        color: #04915b !important;
+        &:hover {
+          color: #16ba7a !important
+        }
+        em {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}

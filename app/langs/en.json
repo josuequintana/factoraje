@@ -1,0 +1,69 @@
+{
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type to search ..."
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "Main Navigation"
+    },
+    "nav": {
+      "DASHBOARD": "Dashboard",
+      "CARDS": "Cards",
+      "DOCUMENTATION": "Documentation",
+      "component": {
+        "COMPONENTS": "Components",
+        "BUTTON": "Buttons",
+        "NOTIFICATION": "Notifications",
+        "BOOTSTRAPUI": "Bootstrap UI",
+        "PANEL": "Panels",
+        "PORTLET": "Portlet",
+        "GRID": "Grid",
+        "GRID_MASONRY": "Grid Masonry",
+        "TYPO": "Typography",
+        "PALETTE": "Palette"
+      },
+      "icon": {
+        "ICON": "Icons",
+        "FEATHER": "Feather Icons",
+        "FA" : "Font Awesome",
+        "CLIMA": "Climacons",
+        "WEATHER": "Weather Icons"
+      },
+      "form": {
+        "FORM": "Forms",
+        "INPUT": "Inputs",
+        "VALIDATION": "Validation",
+        "WIZARD": "Wizard"
+      },
+      "CHART": "Charts",
+      "table": {
+        "TABLE": "Tables",
+        "RESPONSIVE": "Responsive"
+      },
+      "map": {
+        "MAP": "Maps",
+        "GOOGLE": "Google Map",
+        "VECTOR": "Vector Map"
+      },
+      "app": {
+        "APP": "Apps",
+        "MAILBOX": "Mailbox",
+        "CALENDAR": "Calendar",
+        "TASK": "Tasks"
+      },
+      "pages": {
+        "PAGES": "Pages",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "RECOVER": "Recover password",
+        "LOCK": "Lock",
+        "BLANK": "Blank Template",
+        "INVOICE": "Invoice",
+        "PRICE": "Price Table",
+        "SEARCH": "Search"
+      }
+    }
+  }
+}

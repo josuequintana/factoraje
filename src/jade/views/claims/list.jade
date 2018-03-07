@@ -1,0 +1,80 @@
+.app-view-header.mt0
+  h3.text-22.text-bold.m0 Facturas
+.row(ng-controller="ClaimsController as claims")
+  .col-sm-12
+    .panel.panel-default
+      .panel-body.pt35.pb30
+        .col-sm-12
+          .row
+            flot(dataset="claims.dataSet.claims", options="claims.flotOptionsDefault", height="315")
+            .row
+              .col-md-8
+              .col-md-4.col-sm-12
+                #legend-claims.legend-chart-custom
+  .col-sm-12.p0
+    .col-sm-12.col-md-12
+      h3.text-22.text-bold.mt18.mb0.pb31 Resumen
+      .panel.panel-default
+        .panel-body.p-sm.p0
+          .table-responsive
+            table.table.table-striped.blue-table.table-bordered
+              colgroup
+                col(style="width: 20%;")
+                col(style="width: 20%;")
+                col(style="width: 20%;")
+                col(style="width: 20%;")
+              thead
+                tr
+                  th.table-header.text-center.text-18 Mes
+                  th.table-header.text-center.text-18 Facturas
+                  th.table-header.text-center.text-18 Promedio
+                  th.table-header.text-center.text-18 Total
+              tbody
+                tr(ng-if="claims.monthlySummaryTable.length === 0")
+                  td(colspan="4").bl0.br0.text-muted.text-center.text-gray-dark No hay registros disponibles
+                tr(ng-repeat="(key,value) in claims.monthlySummaryTable")
+                  td.bl0.br0 {{claims.monthTraslate[value.month]}}
+                  td.text-center.text-gray-dark {{value.claims_quantity | currency:'':0}}
+                  td.text-center.text-gray-dark {{value.average_amount | currency : 'Q'}}
+                  td.bl0.br0.text-center.text-gray-dark {{value.total_amount | currency : 'Q'}}
+  .col-sm-12
+    h3.text-22.text-bold.mt18.mb0.pb31 Detalle
+    .panel.panel-default
+      .panel-body.p-sm.p0
+        .table-responsive
+          table.table.table-striped.blue-table.table-bordered
+            colgroup
+              col(style="width: 10%;")
+              col(style="width: 25%;")
+              col(style="width: 15%;")
+              col(style="width: 15%;")
+              col(style="width: 15%;")
+              col(style="width: 10%;")
+            thead
+              tr
+                th.table-header.text-center.text-18 Fecha
+                th.table-header.text-center.text-18 Sucursal
+                th.table-header.text-18.text-center Factura
+                th.table-header.text-center.text-18 Tipo
+                th.table-header.text-center.text-18 Estado
+                th.table-header.text-center.text-18 Total
+            tbody
+              tr(ng-if="claimTransactions.length === 0")
+                td(colspan="7").text-muted.text-center.text-gray-dark No hay registros disponibles
+              tr.hover-table.clickable(ng-repeat="(key,value) in claimTransactions" ng-click="claims.goToSingle(value)")
+                td.bl0.br0.text-gray-dark.text-center.text-medium
+                  | {{value.created_at | date: 'dd/MM/yyyy' : 'UTC'}}
+                td.text-gray-dark.text-medium
+                  | {{value.provider_branch_name.toCapitalize()}}
+                td.text-gray-dark.text-medium.text-center
+                  | {{value.document_number}}
+                td.text-gray-dark.text-medium.text-center
+                  | {{claims.claimsTypeTranslate[value.type] || '' }}
+                td.text-gray-dark.text-left.text-medium(ng-class="claims.getProductStatusClassObj(value.status.toLowerCase())" ng-if="value.type=='claims'")
+                  | {{claims.claimStatusTraslate[value.status.toLowerCase()] || '' }}
+                td.text-gray-dark.text-left.text-medium(ng-class="claims.getProductStatusClassObj(value.status.toLowerCase())" ng-if="value.type=='express'")
+                    | {{claims.expressStatusTraslate[value.status.toLowerCase()] || '' }}
+                td.text-gray-dark.text-center.text-medium
+                  | {{value.amount.toFixed(2) | currency : 'Q'}}
+    .bg-white.text-center.bt0
+      input-pager(max="{{total_pages}}", disabled="{{claims.isLoadingResults}}")

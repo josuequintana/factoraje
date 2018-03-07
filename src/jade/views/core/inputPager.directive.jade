@@ -1,0 +1,15 @@
+.row.input-pager-container
+    ul
+        //-li
+            button.bg-white.b.pt-sm.pb-sm.pr.pl.mr0.ml0(ng-click='(currentPage = 1)', ng-disabled="currentPage == 1") Primera
+        li
+            button.bg-white.b.pt-sm.pb-sm.pr.pl.mr0.ml0(ng-click='prevPage()', ng-disabled="currentPage == 1") &#60;
+        li
+            form(name="pagerForm")
+                .current.pb-sm.pt-sm.pl.pr.text-osigu-secondary-blue.bg-osigu-primary-blue
+                    input(ng-model='currentPage', name="pagerInp", required="required", ng-class="{'text-danger' : (1 * currentPage) > (1 * maxPage) }").pull-left.wd-25.b0.rounded.mr-sm
+                    span.text-white / &nbsp;&nbsp; {{maxPage}}
+        li
+            button.bg-white.b.pt-sm.pb-sm.pr.pl.mr0.ml0(ng-click='nextPage()', ng-disabled="currentPage == maxPage") &#62;
+        //-li
+            button.bg-white.b.pt-sm.pb-sm.pr.pl.mr0.ml0(ng-click='(currentPage = maxPage)', ng-disabled="currentPage == maxPage") Última

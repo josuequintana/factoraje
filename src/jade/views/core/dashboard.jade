@@ -1,0 +1,67 @@
+.row.m0(ng-controller="DashboardController as dashboard")
+  p {{dashboard.cashOutModalMain}}
+  .number-widgets
+    .col-md-4.col-sm-12.pt0.pr3.pm0.pl3
+      .panel
+        .panel-body.pt30.pb0.pl0.pr0
+          p.text-18.text-lh22.text-bold.pl20.pr20.mb25.mt0
+            | Total
+          p.text-osigu-primary-green.text-center.number-text.mt45.mb40.text-lh50 {{total_revenue | currency : 'Q'}}
+          
+
+    .col-md-4.col-sm-12.pt0.pr3.pm0.pl3
+      .panel
+        .panel-body.pt30.pb0.pl0.pr0
+          p.text-18.text-lh22.text-bold.pl20.pr20.mb25.mt0
+            | Facturas Descontadas
+          p.text-impulso-camex.text-center.number-text.mt45.mb40.text-lh50 {{total_claims | currency:'':0}}
+          
+    .col-md-4.col-sm-12.pt0.pr3.pm0.pl3
+      .panel
+        .panel-body.pt30.pb0
+          p.text-18.text-lh22.text-bold.pl0.pr0.mb25.mt0
+            | Promedio
+          p.text-impulso-camex.text-center.number-text.mt45.mb40.text-lh50 {{avg_per_claim | currency : 'Q'}}
+  .col-sm-12.pr0.pl0
+    h4.text-22.text-bold.mb38.mt18 Facturas
+  .col-sm-12.fw-boxed.pr0.pl0
+    .panel.panel-default
+      .panel-body.p25
+        .col-sm-12
+          flot(dataset="dashboard.dataSet.claims", options="dashboard.flotOptionsClaims", height="325")
+          .row
+            .col-sm-8
+            .col-sm-4
+              #legend-of-claims.legend-chart-custom
+  .col-sm-12.p0
+    h4.text-22.text-bold.mb38.mt18 Detalle
+  .col-sm-12.fw-boxed.p0
+    .panel
+      .panel-body.p-sm
+        .table-responsive
+          table.table.table-striped.blue-table.table-bordered
+            colgroup
+              col(style="width:33.3%")
+              col(style="width:33.3%")
+              col(style="width:33.3%")
+            thead
+              tr.text-white
+                th.bg-osigu-primary-blue.text-center
+                  span.text-white.text-18 No. Factura
+                th.bg-osigu-primary-blue.bg-light.text-center
+                  span.text-white.text-18.text-lh18
+                    | Total
+                th.bg-osigu-primary-blue.text-center.text-18
+                  span.text-white.text-lh18
+                    | &#37;
+            tbody
+              tr(ng-if="dashboard.claimsDetailByBranch.length === 0")
+                td(colspan="3").bl0.br0.text-muted.text-center.text-gray-dark No hay registros disponibles
+              tr(ng-repeat="total in dashboard.claimsDetailByBranch track by dashboard.calculateTotal(total, $index)")
+                td.text-gray-dark.text-center.text-18.text-lh18.text-medium {{total.document_date | date: 'dd/MM/yyyy' : 'UTC'}}
+                td.text-gray-dark.text-center.text-18.text-lh18.text-medium {{total.total_amount || 0 | currency: 'Q'}}
+                td.text-gray-dark.text-center.text-18.text-lh18.text-medium {{total.percentage | currency: '' : 2 || 0 }}&#37;
+              tr.bg-osigu-primary-green
+                td.text-white.text-center.text-18.text-lh18.text-medium Total
+                td.text-white.text-center.text-18.text-lh18.text-medium {{dashboard.TotalAmount| currency: 'Q'}}
+                td.text-white.text-center.text-18.text-lh18.text-medium {{dashboard.TotalAmount? 100 : 0}}&#37;

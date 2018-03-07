@@ -1,0 +1,84 @@
+
+.btn-switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  
+  > input[type="checkbox"]  {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    cursor:pointer;
+    left:-100%;
+    top:-100%;
+    
+    + .btn {
+      background-color: transparent;
+      border-color: @brand-primary;
+      color: @brand-primary ;
+      text-align: left;
+      > em {
+        position: relative;
+        top: -1px;
+        margin-right: 2px;
+        display: inline-block;
+        border: 1px solid @brand-primary;
+        border-radius: 50%;
+        padding: 2.5px;
+        margin: 0 4px 0 0;
+        font-size: 10px;
+        text-align: center;    
+        &:before {
+          position: relative;
+          top: 1px;
+          opacity: 0;
+        }
+      }
+    }
+    &:checked + .btn {
+      background-color: @brand-primary;
+      color: #fff;
+      > em {
+        background-color: #fff;
+        color: @brand-primary;
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+.btn-switch-primary   { .btn-switch-variant(@brand-primary);   }
+.btn-switch-success   { .btn-switch-variant(@brand-success);   }
+.btn-switch-info      { .btn-switch-variant(@brand-info);      }
+.btn-switch-warning   { .btn-switch-variant(@brand-warning);   }
+.btn-switch-danger    { .btn-switch-variant(@brand-danger);    }
+.btn-switch-inverse   { .btn-switch-variant(@brand-inverse);   }
+.btn-switch-amber     { .btn-switch-variant(@brand-amber); }
+.btn-switch-pink      { .btn-switch-variant(@brand-pink);      }
+.btn-switch-purple    { .btn-switch-variant(@brand-purple);    }
+.btn-switch-orange    { .btn-switch-variant(@brand-orange);    }
+
+.btn-switch-variant(@color) {
+
+  & > input[type="checkbox"]  {
+    
+    + .btn {
+      border-color: @color;
+      color: @color !important;
+      > em {
+        border-color: @color;    
+      }
+    }
+    &:checked + .btn {
+      background-color: @color;
+      color: #fff !important;
+      > em {
+        color: @color !important;
+      }
+    }
+  }
+
+}

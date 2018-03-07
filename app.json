@@ -1,0 +1,21 @@
+{
+  "name": "providers-dashboard",
+  "scripts": {
+  },
+  "env": {
+    "ENV": {
+      "required": false,
+      "value": "staging."
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

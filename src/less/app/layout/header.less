@@ -1,0 +1,258 @@
+/**
+   Component: top-navbar.less
+*/
+ 
+@nav-header-wd:                 @aside-wd;
+
+
+// Navbar Mobile General styles
+// ------------------------------
+
+.topnavbar {
+  position: relative;
+  margin-bottom: 0;
+  border-radius: 0;
+  border: 0;
+  .transition(box-shadow .2s ease);
+  -webkit-backface-visibility: hidden; /* chrome jump */
+
+  // Navbar Header (logo)
+  // ----------------------------------- 
+  > .navbar-header {
+    position: relative;
+    width: 240px;
+    .transition(width .2s ease);
+
+    @media @tablet {
+      background-image: none;
+      z-index: 1; // overlaps wrapper
+    }
+
+    > .navbar-brand {
+      position: relative;
+      display: block;
+      padding: 0 5px; 
+      line-height: @header-hg;
+      float: none;
+      margin: 0 50px;
+      z-index: 1;
+      @media @tablet {
+        margin: 0 15px;
+      }
+      img {
+        //max-height: 100%;
+        margin-top: 5px;
+      }
+    }
+    
+    // Different Logo size depends on the navbar state
+    .brand-logo { 
+      display: inline-block;
+      width: 177px;
+      height: 55px;
+    }
+
+  }
+  
+  // relocate points for single notifications
+
+  .nav > li > a .point-pin {
+    display: inline-block;
+    > .point {
+      left: auto;
+      right: -5px;
+      bottom: auto;
+      top: -5px;
+    }
+  }
+
+  // Mobile button toggles
+  // ----------------------------------- 
+  .mobile-toggles {
+    .clearfix();
+    position: absolute !important;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: @header-hg;
+    line-height: @header-hg;
+    padding: 0 10px;
+
+    @media @tablet {
+      display: none;
+    }
+  }
+  
+  // Offcanvas sidebar &
+  // slide down menu toggle button
+  .sidebar-toggle,
+  .menu-toggle {
+    font-size: 24px;
+    color: white;
+    z-index: 3001;
+  }
+  .sidebar-toggle {
+    float: left;
+  }
+  .menu-toggle {
+    float: right;
+  }
+
+  // Navbar items shadow style
+  @media @tablet {
+    .nav > li > a {
+      &:hover, &:focus {
+        background-color: fade(@brand-inverse, 5);
+      }
+    }
+  }
+
+
+}
+// Search form
+.search-form {
+  .form-control {
+    border-color: transparent;
+  }
+  .input-group-addon {
+    border-color: transparent;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ie9 & {
+    .form-control {
+      // border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+  }
+}
+
+// contains elements below header
+.nav-wrapper {
+  padding: 0 15px;
+  // box-shadow: 0 1px 1px rgba(0,0,0,.1);
+
+  // when collapse is opened
+  &.in {
+    overflow: visible;
+  }
+
+  // fullwidth dropdowns
+  .navbar-nav .open .dropdown-menu {
+    position: absolute;
+    // background-color: rgb(255, 255, 255);
+    left: 0px;
+    right: 0px;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  @media @tablet {
+    .clearfix();
+    position: relative;
+
+    // restore opened dropdown 
+    .navbar-nav .open .dropdown-menu {
+      left: auto;
+      right: auto;
+    }
+    .navbar-nav.navbar-right .open .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+
+  }
+}
+.global-filters {
+  margin: 20px 0;
+}
+
+.hackyhack {
+  position: relative;
+
+  .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+  }
+  button.btn-danger {
+    display: none !important;
+  }
+  button.btn-info {
+    background: @brand-white !important;
+    color: #616161 !important;
+    border-color: #e6e9ee  !important;
+    box-shadow: 0 0 0 #000!important;
+    &:hover {
+      background: #f5f5f5 !important;
+    }
+    &.active, &.btn-default {
+      background-color: @osigu-primary-blue !important;
+    }
+  }
+  button.btn.btn-success {
+    box-shadow: 0 0 0 #000!important;
+    background: @brand-white;
+    color: #616161 !important;
+    border: none !important;
+    &:hover {
+      background: #f5f5f5 !important;
+    }
+  }
+}
+
+.top-nav-date-picker{
+  margin: 15px 0;
+  select{
+    background-color: @osigu-primary-blue;
+    color: @brand-white;
+    option{
+      background-color: @brand-white;
+      color: #000;
+    }
+  }
+  input{
+    background-color: @osigu-primary-blue!important;
+    color: @brand-white;
+  }
+  input, select{
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid @brand-white!important;
+  }
+  label{
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+}
+
+
+.btn-date{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-bottom: 1px solid @brand-white;
+  margin-left: -5px;
+  .fa-caret-down{
+    color: @brand-white;
+  }
+
+}
+
+.dropdown-custom{
+  &:hover{
+    background-color: #1d9eff;
+    box-shadow: none;
+  }
+  &:focus{
+    background-color: #1d9eff;
+    box-shadow: none;
+  }
+  button{
+    .caret{
+      color: #fff;
+    }
+  }
+
+}

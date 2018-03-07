@@ -1,0 +1,69 @@
+{
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Pesquisa .."
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "Navegação principal"
+    },
+    "nav": {
+      "DASHBOARD": "Painel",
+      "CARDS": "Cartões",
+      "DOCUMENTATION": "Documentação",
+      "component": {
+        "COMPONENTS": "Componentes",
+        "BUTTON": "Botões",
+        "NOTIFICATION": "Notificações",
+        "BOOTSTRAPUI": "Bootstrap UI",
+        "PANEL": "Painels",
+        "PORTLET": "Portlet",
+        "GRID": "Grade",
+        "GRID_MASONRY": "Grade Masonry",
+        "TYPO": "Tipografia",
+        "PALETTE": "Paleta"
+      },
+      "icon": {
+        "ICON": "Icones",
+        "FEATHER": "Feather Icons",
+        "FA" : "Font Awesome",
+        "CLIMA": "Climacons",
+        "WEATHER": "Weather Icons"
+      },
+      "form": {
+        "FORM": "Formas",
+        "INPUT": "Entradas",
+        "VALIDATION": "Validação",
+        "WIZARD": "Assistente"
+      },
+      "CHART": "Gráficos",
+      "table": {
+        "TABLE": "Tabelas",
+        "RESPONSIVE": "Responsivo"
+      },
+      "map": {
+        "MAP": "Mapas",
+        "GOOGLE": "Google Mapa",
+        "VECTOR": "Vector Mapa"
+      },
+      "app": {
+        "APP": "Apps",
+        "MAILBOX": "Correio",
+        "CALENDAR": "Calendário",
+        "TASK": "Tarefas"
+      },
+      "pages": {
+        "PAGES": "Páginas",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "RECOVER": "Recuperar password",
+        "LOCK": "Travar",
+        "BLANK": "Modelo em branco",
+        "INVOICE": "Fatura",
+        "PRICE": "Tabela de Preços",
+        "SEARCH": "Pesquisa"
+      }
+    }
+  }
+}

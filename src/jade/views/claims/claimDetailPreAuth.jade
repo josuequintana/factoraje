@@ -1,0 +1,124 @@
+.row.m0(ng-controller="ClaimsDetailPresAuthController as preAuthCtrl")
+  .col-sm-6.col-lg-6.fw-boxed.pr8.pl0
+    div
+      h3.text-22.text-bold.m0.pb-xl Detalle
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:50%")
+              col(style="width:50%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-bookmark.text-18
+                  strong ID
+                td {{preAuth.id}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-calendar-o.text-18
+                  strong Fecha
+                td {{preAuth.document_date}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-clock-o.text-18
+                  strong Hora
+                td {{preAuth.document_time}}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-map-marker.text-18
+                  strong.ml-lg Sucursal
+                td {{preAuth.provider_branch_name.toCapitalize()}}
+  .col-sm-6.col-lg-6.col-sm-12.fw-boxed.pr0.pl8
+    div
+      h3.text-22.text-bold.m0.pb-xl &#160;
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:50%")
+              col(style="width:50%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-file-text.text-18
+                  strong Tipo
+                td  Pre Autorizaci&#243;n
+
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-flag.text-18
+                  strong Estado
+                td(ng-class="preAuthCtrl.getProductStatusClassObj(preAuth.status.toLowerCase())") {{preAuthCtrl.claimStatusTraslate[preAuth.status.toLowerCase()]}}
+
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-money.text-18
+                  strong Total
+                td  {{preAuth.invoice.amount.toFixed(2) | currency: 'Q' : 2 || 0 }}
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-check.text-18
+                  strong IVR
+                td {{preAuth.verification_code}}
+  .col-sm-12.col-lg-12.col-sm-12.fw-boxed.pr0.pl8
+    div
+      h3.text-22.text-bold.m0.pb-xl Factura
+      .panel.panel-default
+        .table-responsive
+          table.table.table-striped.table-bordered.details-table
+            colgroup
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+              col(style="width:16.66%")
+            tbody
+              tr
+                td
+                  i(aria-hidden="true").fa.fa-bookmark.text-18
+                  strong Factura
+                td {{preAuth.invoice.document_number}}
+                td
+                  i(aria-hidden="true").fa.fa-money.text-18
+                  strong Total
+                td {{preAuth.invoice.amount.toFixed(2) | currency: 'Q' : 2 || 0 }}
+                td
+                  i(aria-hidden="true").fa.fa-usd.text-18
+                  strong Copago
+                td  Q{{preAuth.copayment.toFixed(2)}}
+  .col-sm-12.fw-boxed.pr0.pl0.pt18
+    h3.text-22.text-bold.m0 Productos
+    .panel-default.panel.mt-xl
+      .panel-body.p-sm
+        .table-responsive
+          table.table.blue-table.table-bordered.table-striped
+            colgroup
+              col(style="width:10%")
+              col(style="width:40%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+              col(style="width:10%")
+            thead
+              tr
+                th.table-header.text-center.text-18 C&#243;digo
+                th.table-header.text-center.text-18 Nombre
+                th.table-header.text-center.text-18 Cantidad
+                th.table-header.text-center.text-18 Precio Unitario
+                th.table-header.text-center.text-18 Subtotal
+                th.table-header.text-center.text-18 Coaseguro
+                th.table-header.text-center.text-18 Total
+            tbody
+              tr(ng-if="preAuth.items.length === 0")
+                td(colspan="6").bl0.br0.text-muted.text-center No hay registros disponibles
+              tr(ng-repeat="product in preAuth.items")
+                td.text-center.bl0.br0 {{product.product_id}}
+                td.text-left {{product.name.toCapitalize()}}
+                td.text-center {{product.quantity}}
+                td.text-center.bl0.br0 {{product.price.toFixed(2) | currency: 'Q'}}
+                td.text-center.bl0.br0 {{product.quantity * product.price.toFixed(2) | currency: 'Q'}}
+                td.text-center.bl0.br0 {{product.coinsurance_percentage}}%
+                td.text-center.bl0.br0 {{ ((100 - product.coinsurance_percentage) / 100) * product.quantity * product.price.toFixed(2) | currency: 'Q'}}

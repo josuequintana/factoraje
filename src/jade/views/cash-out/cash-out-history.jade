@@ -1,0 +1,37 @@
+// START header
+.app-view-header.mt0
+    h3.text-22.text-bold.m0 Historial de Cash out
+// END header
+// START products content
+div(ng-controller="HistoryCashOutController as history")
+    .panel.panel-default
+        .panel-body.p-sm
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                          //col.col-sm-2
+                          col(style="width: 16.66%;")
+                          col(style="width: 16.66%;")
+                          col(style="width: 25%;")
+                          col(style="width: 25%;")
+                          col(style="width: 16.66%;")
+                    thead.table-header
+                        tr
+                            th.text-center.text-18 Código
+                            th.text-center.text-18 Fecha
+                            th.text-center.text-18 # Transferencia
+                            th.text-center.text-18 Monto
+                            th.text-center.text-18 Acción
+                    tbody
+                        tr(ng-if="cashOutData === 0")
+                            td(colspan="5").text-muted.text-center.text-gray-dark No hay registros disponibles
+                        tr(ng-repeat="(key,value) in cashOutData")
+                            td.text-center.text-medium.text-gray-dark {{value.document_number}}
+                            td.text-center.text-medium.text-gray-dark {{value.created_at | date:'dd/MM/yyyy'}}
+                            td.text-center.text-medium.text-gray-dark {{value.id}}
+                            td.text-center.text-medium.text-gray-dark
+                                span {{value.amount | currency:'Q'}}
+                            td.text-center.text-medium
+                                a(ng-href='value.file_path') Descargar PDF
+    .panel-footer.bg-white.text-center.bt0.mt45
+        input-pager(max="{{total_pages}}", disable="{{isLoadingResults}}")

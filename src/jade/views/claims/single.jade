@@ -1,0 +1,104 @@
+// START products content
+.row.m0(ng-controller="ClaimsSingleController as single")
+    .col-lg-12.pr0.pl0
+      .app-view-header.mrg-0
+          h3.text-22.text-bold.m0 Detalle de Reclamo \#{{claim.id}}
+    .col-sm-6.fw-boxed.pr.pl0
+      div
+        h3.text-22.text-bold.m0.pb-xl Reclamo
+        // START panel
+        .panel.panel-default
+            // START table-responsive
+            .table-responsive
+                table.table.table-striped.table-bordered.details-table
+                    colgroup
+                        col(style="width:50%")
+                        col(style="width:50%")
+                    tbody
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-search
+                                strong No. Reclamo
+                            td {{claim.id}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-calendar-o
+                                strong Fecha
+                            td {{claim.date}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-clock-o
+                                strong Hora
+                            td {{claim.time}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-map-marker
+                                strong Sucursal
+                            td {{claim.provider_branch_name.toCapitalize()}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-file-text
+                                strong Factura
+                            td {{claim.invoice.document_number}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-database
+                                strong Tipo
+                            td  {{single.type || ''}}
+                        tr
+                            td
+                                i(aria-hidden="true").fa.fa-database
+                                strong Estado
+                            td  {{single.statusTraslate[claim.status ]}}
+    .col-lg-6.col-sm-12.fw-boxed.pr0.pl
+        div
+            h3.text-22.text-bold.m0.pb-xl Autorización
+        // START panel
+        .panel-default
+            .col-xs-12.col-lg-4.pr-9.pl0
+                .panel.panel-default.small-table-single-claims.table-one
+                    .panel-body.pt0.pl0
+                        i(aria-hidden="true").fa.fa-search.text-15.mt-xl.ml-xl
+                        .bottom-align-text.wd-wide
+                            .col-xs-12.pl-30
+                                h2.text-left.text-thin.text-45 {{claim.id}}
+                                h4.text-medium No. Autorizaci&#243;n
+            .col-xs-12.col-lg-4.pr-9.pl-9
+                .panel.panel-default.small-table-single-claims.table-second
+                    .panel-body.pt0.pl0
+                        i(aria-hidden="true").fa.fa-calendar-o.text-15.mt-xl.ml-xl
+                        .bottom-align-text.wd-wide
+                            .col-xs-12.pl-30
+                                h2.text-left.text-thin.text-45 {{claim.date}}
+                                h4.text-medium Fecha
+            .col-xs-12.col-lg-4.pr0.pl-9
+                .panel.panel-default.small-table-single-claims.table-third
+                    .panel-body.pt0.pl0
+                        i(aria-hidden="true").fa.fa-clock-o.text-15.mt-xl.ml-xl
+                        .bottom-align-text.wd-wide
+                            .col-xs-12.pl-30
+                                h2.text-left.text-thin.text-45 {{claim.time}}
+                                h4.text-medium Hora
+    .col-sm-12.fw-boxed.pr0.pl0
+        h3.text-22.text-bold.m0 Detalle de Productos
+        .panel-default.panel.mt-xl
+          .panel-body.p-sm
+            .table-responsive
+                table.table.green-table.table-bordered
+                    colgroup
+                        col(style="width:20%")
+                        col(style="width:40%")
+                        col(style="width:15%")
+                        col(style="width:15%")
+                    thead
+                        tr
+                            th.table-header.text-center.text-18 C&#243;digo de Producto
+                            th.table-header.text-center.text-18 Nombre
+                            th.table-header.text-center.text-18 Cantidad
+                            th.table-header.text-center.text-18 Precio
+                    tbody
+                        tr(ng-repeat="product in claim.items")
+                            td.text-center {{product.product_id}}
+                            td.text-center {{product.name.toCapitalize()}}
+                            td.text-center {{product.quantity}}
+                            td.text-center {{product.price.toFixed(2) | currency: 'Q.'}}

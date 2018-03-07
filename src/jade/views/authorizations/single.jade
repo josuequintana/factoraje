@@ -1,0 +1,95 @@
+// START products content
+.row(ng-controller="AuthorizationsSingleController as single")
+    // START header
+    .col-lg-12.col-sm-12.fw-boxed
+        .app-view-header.mrg-0
+            | Authorization Detail \#{{single.authorization.id}}
+    .col-sm-12.fw-boxed
+        .app-view-header
+            .col-md-6.pr0.pl0
+                .panel-default
+                    .table-responsive
+                        table.table.table-striped.table-bordered.details-table
+                            colgroup
+                                col(style="width: 40%;")
+                                col(style="width: 60%;")
+                            tbody
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-search
+                                        strong ID
+                                    td {{single.authorization.id}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-calendar-o
+                                        strong Date
+                                    td {{single.authorization.created_at}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-clock-o
+                                        strong Time
+                                    td {{single.authorization.time_created_at}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-table
+                                        strong Products / Services
+                                    td {{single.authorization.items.length}}
+            .col-md-6.pl0.pr0
+                .panel-default
+                    .table-responsive
+                        table.table.table-striped.table-bordered.details-table
+                            colgroup
+                                col(style="width: 40%;")
+                                col(style="width: 60%;")
+                            tbody
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-medkit
+                                        strong Doctor's Name
+                                    td {{single.authorization.doctor.name.toCapitalize()}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-user
+                                        strong Doctor's ID
+                                    td {{single.authorization.doctor.medical_licence}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-male
+                                        strong Insured Name
+                                    td {{single.authorization.policy.policy_holder.name.toCapitalize()}}
+                                tr
+                                    td
+                                        i(aria-hidden="true").fa.fa-file
+                                        strong Policy Number
+                                    td {{single.authorization.policy.number +'-'+ single.authorization.policy.certificate}}
+    .col-lg-12.col-sm-12.fw-boxed
+        .panel-default
+            .panel-heading.bg-primary
+                .text-md.text-white.text-bold  Diagnosis
+            .panel-body
+                ul
+                    li.col-xs-4.pull-left.text-md.text-gray-dark(ng-repeat="diagnose in single.authorization.diagnoses") {{diagnose.name.toCapitalize()}}
+    .col-sm-12.fw-boxed
+        .app-view-header
+            h3 Authorized Products Details
+        .panel-default
+            .panel-body
+                .table-responsive
+                    table.table.green-table
+                        colgroup
+                            col(style="width: 10%;")
+                            col(style="width: 50%;")
+                            col(style="width: 30%;")
+                            col(style="width: 10%;")
+                        thead
+                            tr
+                                th.table-header.text-center ID
+                                th.table-header.text-center Name
+                                th.table-header.text-center Manufacturer
+                                th.table-header.text-center Quantity
+                        tbody
+                            tr(ng-repeat="product in single.authorization.items")
+                                td.text-center {{product.id}}
+                                td.text-center {{product.name.toCapitalize()}}
+                                td.text-center {{product.manufacturer.toCapitalize()}}
+                                td.text-center {{product.quantity}}

@@ -1,0 +1,30 @@
+nav.navbar.topnavbar(role='navigation', ng-controller="HeaderNavController as header")
+  .navbar-header
+    a.navbar-brand.pl25(ui-sref='app.dashboard')
+      img.brand-logo(src="app/img/newlogo.png", alt="App Logo", style="width: 90px;height: 65px;margin-left: 50px;")
+    .mobile-toggles
+      a(href='', ng-click="app.sidebar.isOffscreen = !app.sidebar.isOffscreen").sidebar-toggle
+        em.fa.fa-navicon
+  .nav-wrapper.collapse.navbar-collapse(collapse="header.headerMenuCollapsed")
+    ul.nav.navbar-nav.hidden-material
+      li
+        a(href='', ng-click="app.sidebar.isOffscreen = !app.sidebar.isOffscreen").hidden-xs
+          em.fa(ng-class="app.sidebar.isOffscreen ? 'fa-caret-right':'fa-caret-left'")
+    .col-sm-8.pull-right.top-nav-date-picker
+      .row
+        .col-xs-12.mb.mt20.pr0
+          .user_icon
+            img(src="app/img/default.png")
+          .form-inline.pull-right(ng-hide="$state.current.name === 'app.claims.claimDetailExpress' || $state.current.name === 'app.claims.claimDetailPreAuth'")
+            .form-group.hackyhack
+              strong.text-white.align-bottom.text-16 Fecha del
+                input.wdt110.form-control.ml7.pt0.pb0.hgt-auto(ng-disabled="!datepickerFrom.enabled", ng-click="datepickerFrom.open($event)", type='text', datepicker-popup='{{$root.datepickerFrom.format}}', ng-model='$root.globalQueryParams.date_from', is-open='datepickerFrom.isOpen' datepicker-options='datepickerFrom.options', close-text="x", max-date="datepickerFrom.maxDate", current-text="Hoy", ng-readonly="true")
+              span
+                button.btn.bg-osigu-primary-blue.b0.shadow-clear.p0.btn-date(ng-disabled="!datepickerFrom.enabled", type='button', ng-click='$root.datepickerFrom.open($event)')
+                  i.fa.fa-caret-down
+            .form-group.hackyhack.ml7
+              strong.text-white.align-bottom.text-16 Al
+                input.wdt110.form-control.ml7.pt0.pb0.hgt-auto(ng-disabled="!datepickerTo.enabled", ng-click="datepickerTo.open($event)", type='text', datepicker-popup='{{$root.datepickerTo.format}}', ng-model='$root.globalQueryParams.date_to', is-open='datepickerTo.isOpen' datepicker-options='datepickerTo.options', close-text="x", max-date="datepickerTo.maxDate", current-text="Hoy", ng-readonly="true")
+              span
+                button.btn.bg-osigu-primary-blue.b0.shadow-clear.p0.btn-date(ng-disabled="!datepickerTo.enabled", type='button', ng-click='$root.datepickerTo.open($event)')
+                  i.fa.fa-caret-down

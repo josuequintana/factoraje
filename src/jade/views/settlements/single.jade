@@ -1,0 +1,110 @@
+// START header
+//.app-view-header
+    .row
+        .col-md-11
+            |Liquidaciones
+        
+// END header
+// START products content
+.row(ng-controller="SettlementsSingleController as single")
+    .app-view-header
+        .col-md-11
+            | Liqu&#237;daciones
+        .col-md-1
+            .form-group
+                .btn-group(dropdown='dropdown', ng-show="settlementsDetails.status === 'PRINTED'")
+                    button.btn.dropdown-toggle.btn-info(type='button', ng-disabled='disabled', class="btn-imprimir", dropdown-toggle="", ripple="")
+                      | imprimir
+                      | &nbsp;
+                      span.caret
+                    ul.dropdown-menu(role='menu')
+                      li
+                        a(href="", target="_blank", ng-click="single.printSettlementDoc('pdf')") PDF
+                      li
+                        a(href="", target="_blank", ng-click="single.printSettlementDoc('xls')") XLS
+    .col-lg-6.col-sm-12.fw-boxed
+        .panel.panel-default
+            .panel-heading
+                .panel-title Detalles del Liqu&#237;daciones
+            .panel-body
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='settlement-id') ID
+                        .col-sm-10
+                            input#settlement-id.form-control(type='text' disabled="disabled" ,ng-model="settlementsDetails.id")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='settlement-status') Estado
+                        .col-sm-10
+                            input#settlement-status.form-control(type='text' disabled="disabled" ,ng-model="single.settlementStatusText[settlementsDetails.status]")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='settlement-type') Tipo
+                        .col-sm-10
+                            input#settlement-type.form-control(type='text' disabled="disabled" ,ng-model="single.settlementStatusType[settlementsDetails.type]")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='settlements-date') Fecha de corte
+                        .col-sm-10
+                            input#settlement-date-to.form-control(type='text', disabled="disabled" ,ng-model="settlementsDetails.date_to")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='settlements-date') Fecha de creaci&oacute;n
+                        .col-sm-10
+                            input#settlement-created-to.form-control(type='text', disabled="disabled" ,ng-model="settlementsDetails.created_at")
+    .col-lg-6.col-sm-12.fw-boxed
+        .panel.panel-default
+            .panel-heading
+                .panel-title Detalles de Factura
+            .panel-body
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='doc-Pending') Nombre de Compañia
+                        .col-sm-10
+                            input#company-Name.form-control(type='text', disabled="disabled", ng-model="companiesName")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='insurer-Name') Aseguradora
+                        .col-sm-10
+                            input#insurer-Name.form-control(type='text', disabled="disabled", ng-model="insurersName")
+                fieldset
+                    .form-group
+                        label.col-sm-2.control-label(for='branch-Name') Sucursal
+                        .col-sm-10
+                            input#branch-Name.form-control(type='text', disabled="disabled", ng-model="branchName")
+    .col-sm-12.fw-boxed
+        .panel.panel-default
+            .panel-heading
+                .panel-title Comisiones
+            .panel-body
+                .table-responsive
+                    table.table
+                        tbody
+                            th(ng-show="settlementsDetails.items.length > 0") Facturas
+                                tr(ng-repeat="product in settlementsDetails.items")
+                                    td Reclamo  
+                                        a(ng-href='#/app/claims/{{ product.id }}') No.{{ product.id }}
+                                        |&#32;({{ product.created_at | date : 'dd/MM/yyyy'}})
+                                    td {{product.claim_amount | currency : 'Q. '}}
+                                    td  
+                            th(ng-show="settlementsDetails.commissions.length > 0") Comisiones
+                                tr(ng-repeat="product in settlementsDetails.commissions")
+                                    td (&#32;-&#32;) Comisi&#243;n  No.{{product.id }}  ({{ product.created_at | date : 'dd/MM/yyyy'}}) &#37;{{product.percentage}}
+                                    td 
+                                    td {{product.amount | currency : 'Q. '}}
+                            th(ng-show="settlementsDetails.retentions.length > 0") Retensiones
+                                tr(ng-repeat="product in settlementsDetails.retentions")
+                                    td (&#32;-&#32;) Retenci&#243;n  No.{{ product.id }}  ({{ product.created_at | date : 'dd/MM/yyyy'}}) &#37;{{product.percentage}}
+                                    td 
+                                    td {{product.amount | currency : 'Q. '}}
+                            th(ng-show="settlementsDetails.taxes.length > 0") Impuestos
+                                tr(ng-repeat="product in settlementsDetails.taxes")
+                                    td (&#32;-&#32;) Impuesto  No.{{ product.id }}  ({{ product.created_at | date : 'dd/MM/yyyy'}}) &#37;{{product.percentage}}
+                                    td 
+                                    td {{product.amount | currency : 'Q. '}}
+                            tr
+                                td 
+                                    strong 
+                                        |Total
+                                td {{settlementsDetails.total_amount | currency : 'Q. '}}
+                                td {{settlementsDetails.total_discount_amount | currency : 'Q. '}}

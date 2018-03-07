@@ -1,0 +1,224 @@
+/**
+   Component: utils-background.less
+*/
+
+// Background helpers
+//  Generates bg classes for
+//    .bg-{brand-name}
+//    .bg-{brand-name}-light
+//    .bg-{brand-name}-dark
+
+.bg-gray         { .make-bg('gray'); }
+.bg-gray-darker  { .make-bg('gray-darker'); }
+.bg-gray-dark    { .make-bg('gray-dark'); }
+.bg-gray-light   {
+  .make-bg('gray-light', @text-color, #919293, @gray, #fff);
+}
+.bg-gray-lighter {
+  .make-bg('gray-lighter', @text-color, #919293, @gray, #fff);
+}
+#bg-white,
+.bg-white {
+  .make-bg('brand-white', @text-color, @gray-dark, @text-muted, #f1f2f3 );
+}
+
+.bg-inverse {
+  .make-bg('brand-inverse');
+  .bgcolor-variant('brand-inverse');
+}
+.bg-primary {
+  .make-bg('brand-primary');
+  .bgcolor-variant('brand-primary');
+}
+.bg-success {
+  .make-bg('brand-success');
+  .bgcolor-variant('brand-success');
+}
+.bg-info {
+  .make-bg('brand-info');
+  .bgcolor-variant('brand-info');
+}
+.bg-warning {
+  .make-bg('brand-warning');
+  .bgcolor-variant('brand-warning');
+}
+.bg-danger {
+  .make-bg('brand-danger');
+  .bgcolor-variant('brand-danger');
+}
+.bg-amber {
+  .make-bg('brand-amber');
+  .bgcolor-variant('brand-amber');
+}
+.bg-pink {
+  .make-bg('brand-pink');
+  .bgcolor-variant('brand-pink');
+}
+.bg-purple {
+  .make-bg('brand-purple');
+  .bgcolor-variant('brand-purple');
+}
+.bg-orange {
+  .make-bg('brand-orange');
+  .bgcolor-variant('brand-orange');
+}
+.bg-osigu-primary-blue {
+  .make-bg('osigu-primary-blue');
+  .bgcolor-variant('osigu-primary-blue');
+}
+.bg-osigu-primary-green {
+  .make-bg('osigu-primary-green');
+  .bgcolor-variant('osigu-primary-green');
+}
+.bg-osigu-secondary-blue {
+  .make-bg('osigu-secondary-blue');
+  .bgcolor-variant('osigu-secondary-blue');
+}
+.bg-osigu-secondary-green {
+  .make-bg('osigu-secondary-green');
+          .bgcolor-variant('osigu-secondary-green');
+}
+
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+// Background hover
+
+// .bg-hover-primary      { &:hover { &:extend(.bg-primary);} }
+// .bg-hover-success      { &:hover { &:extend(.bg-success);} }
+// .bg-hover-info         { &:hover { &:extend(.bg-info);} }
+// .bg-hover-warning      { &:hover { &:extend(.bg-warning);} }
+// .bg-hover-danger       { &:hover { &:extend(.bg-danger);} }
+// .bg-hover-amber    { &:hover { &:extend(.bg-amber);} }
+// .bg-hover-pink         { &:hover { &:extend(.bg-pink);} }
+// .bg-hover-purple       { &:hover { &:extend(.bg-purple);} }
+// .bg-hover-inverse      { &:hover { &:extend(.bg-inverse);} }
+// .bg-hover-orange       { &:hover { &:extend(.bg-orange);} }
+
+// .bg-hover-white        { &:hover { &:extend(.bg-white);} }
+// .bg-hover-gray-darker  { &:hover { &:extend(.bg-gray-darker);} }
+// .bg-hover-gray-dark    { &:hover { &:extend(.bg-gray-dark);} }
+// .bg-hover-gray         { &:hover { &:extend(.bg-gray);} }
+// .bg-hover-gray-light   { &:hover { &:extend(.bg-gray-light);} }
+// .bg-hover-gray-lighter { &:hover { &:extend(.bg-gray-lighter);} }
+
+
+.bgcolor-variant(@bg) {
+
+  &.bg-light {
+    @colLight: ~"@{bg}-light";
+    background-color: @@colLight !important;
+    // .bg-opacity(@@colLight);
+  }
+  &.bg-dark {
+    @colDark: ~"@{bg}-dark";
+    background-color: @@colDark !important;
+    // .bg-opacity(@@colDark);
+  }
+
+}
+
+.make-bg(@bg; @color: lighten(@@bg, 43%); @link: lighten(@@bg, 52%); @muted: lighten(@@bg, 26%); @navlinkbg: darken(@@bg, 8%)) {
+  background-color: @@bg !important;
+  // .transition(background-color .2s ease);
+
+  & {
+    color: @color;
+    a {
+      color: mix(@link, @@bg, 70%);
+      &:focus, &:hover {
+        color: @link;
+      }
+      // &.btn-default { color: @btn-default-color; }
+      // &.btn-primary { color: @btn-primary-color; }
+      // &.btn-success { color: @btn-success-color; }
+      // &.btn-info    { color: @btn-info-color;    }
+      // &.btn-warning { color: @btn-warning-color; }
+      // &.btn-danger  { color: @btn-danger-color;  }
+    }
+
+    .nav > li {
+      > a {
+        color: @link;
+      }
+      &.active {
+        background-color: mix(@@bg, @navlinkbg, 50%) !important;
+      }
+      &:hover,
+      &.active {
+        > a { color: lighten(@link, 5%); }
+      }
+      &:hover,
+      &.active {
+        > a { background-color: @navlinkbg; }
+      }
+    }
+
+    .sidebar-subnav {
+      background-color: @@bg;
+      > li.active {
+        > a {
+          font-weight: bold;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .navbar-form {
+      .form-control {
+        background-color: @@bg;
+        color: @color;
+        .placeholder(@muted);
+        .ie9 & {
+          border-bottom: 1px solid fade(@muted, 15%);
+        }
+      }
+      .form-control-feedback,
+      .input-group-addon {
+        color: @muted;
+      }
+    }
+
+    .text-muted {
+      color: @muted
+    }
+    .text-loud {
+      color: lighten(@muted, 26%);
+    }
+
+    small {
+      color: inherit;
+    }
+    @media print {
+      color: #000 !important;
+
+    }
+    .help-block {
+      color: @muted
+    }
+
+    .flot-tick-label {
+      color: @color;
+    }
+    hr {
+      border-top-color: fade(@muted, 26%);
+    }
+  }
+}
+
+
+.bg-opacity(@color) {
+  &-opacity {
+    background-color: fadeout(@color, 45);
+  }
+}
+
+// Background pics shortcut
+.bg-pic1 { background-image: url('../img/bg1.jpg'); }
+.bg-pic2 { background-image: url('../img/bg2.jpg'); }
+.bg-pic3 { background-image: url('../img/bg3.jpg'); }
+.bg-pic4 { background-image: url('../img/bg4.jpg'); }
+.bg-pic5 { background-image: url('../img/bg5.jpg'); }
+.bg-pic6 { background-image: url('../img/bg6.jpg'); }

@@ -1,0 +1,213 @@
+/**
+   Component: sidebar.less
+*/
+ 
+@scrollbar-wd:                    17px;
+@sidebar-item-padding-h:          15px;
+
+.sidebar-wrapper {
+  height: 100%;
+  width: inherit;
+  overflow-x: hidden;
+  background-color: inherit;  
+  hr {
+    margin: 10px 5px;
+    border-top-color: rgba(0,0,0,.15);
+  }
+}
+
+.sidebar {
+  position: relative;
+  height: 100%;
+  width: ~"calc(100% + @{scrollbar-wd})";  // hides the scrollbar
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: inherit;
+  &:after { content: "";}
+  
+  .nav-heading {
+    padding: 12px 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+    white-space: nowrap;
+  }
+ 
+  > .sidebar-nav {
+    width: 100%;
+    padding-bottom: 20px;
+    -webkit-transform: translate3d(0,0,0);
+    // level 1
+    > .nav {
+      position: relative;
+      width: 100%;
+
+      > li {
+        > a {
+          padding: 9px @sidebar-item-padding-h;
+          letter-spacing: .025em;
+          font-weight: 500;
+          white-space: nowrap;
+          .transition(background-color .2s ease);
+
+          &:focus, &:hover {
+            text-decoration: none;
+            outline: none;
+          }
+
+          // Item icon
+          > .sidebar-item-icon {
+            width: 1.7em;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+
+          }
+        }
+        &.active {
+          > .sidebar-subnav {
+            height: auto!important;
+            margin-left: 0;
+            overflow: auto;
+            opacity: 1;
+          }
+          .sidebar-item-caret {
+            .rotate(90deg);
+            .transition-transform(0.2s ease);
+          }
+        }
+      }
+    }
+  } // sidebar-nav 
+}
+
+// Sub Levels
+.sidebar-subnav {
+  
+  height: 0;
+  margin-left: -20px;
+  overflow: hidden;
+  opacity: 0;
+  .transition(all .2s ease-in-out 0s);
+
+  > li  {
+    > a {
+      display: block;
+      position: relative;
+      padding: 10px 20px;
+      padding-left: 40px;
+      font-weight: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      .transition(background-color .2s ease);
+    }
+  } // li
+
+  > .sidebar-subnav-header {
+    display: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    > a {
+      padding: 0 !important;
+      background-color: transparent !important;
+    }
+  }
+
+}
+
+
+// Desktop styles
+// ---------------------------------
+
+@media @tablet {
+  
+  .sidebar > .sidebar-nav > .nav {
+    padding-right: 0;
+    .label,
+    .sidebar-item-caret {
+      margin: 2px 0 0 0;
+      overflow: hidden;
+    }
+    .sidebar-item-caret + .label {
+      margin-right: 5px;
+    }
+
+  }
+
+} // @media @desktop
+
+
+// Sidebar mini (only icons)
+// ----------------------------------- 
+
+
+@media @tablet {
+  .aside-mini {
+    .sidebar-wrapper {
+      width: 100%; // chrome fix
+    }
+    .sidebar {
+      .sidebar-nav > .nav {
+        padding-top: 10px;
+        li {
+          &, > a {
+            width: 100%;
+          }
+
+          &.nav-heading,
+          .sidebar-subnav {
+            display: none;
+          }
+          > a > span {
+            opacity: 0;
+            .transition(opacity .2s ease);
+          }
+        }
+
+        li > a  {
+          width: 100%;
+          > .sidebar-item-caret {
+            display: none;
+          }
+          > em.sidebar-item-icon {
+            width: 2em;
+            text-align: center;
+          }
+          > .label {
+            position: relative;
+            margin: -5px -5px 0 0;
+            .transition(margin 0.2s linear);
+          }
+        }
+      
+      }
+      &:hover .sidebar-nav > .nav {
+        li {
+          // &.nav-heading,
+          .sidebar-subnav {
+            display: block;
+          }
+          > a > span {
+            opacity: 1;
+          }
+          > a > .label {
+            margin: 2px 0 0 0;
+          }   
+        }
+      }
+    }
+  } // sidebar
+} // media @tablet
+
+// flot right elements fix for ios
+.ipad, .iphone {
+  .sidebar > .sidebar-nav > .nav > li > a > .pull-right {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,131 @@
+.two
+  .app-view-header.mb0
+      h3.text-22.text-bold.m0 Cash Out
+    p.mb-xl.text-medium Última Actualización 12/01/2016 a las 12:23 hrs
+  .row(ng-controller="CashOutTwoController as Cashout")
+
+    .panel
+      .row
+        .panel-body.p0
+          .col-md-6.bg-osigu-primary-green.shadow-z1
+            h2.text-green-dark.total.mt0 Total cobrado:
+            p.price.mb0 Q 100,594.98
+            span.text-green-dark.comision Comisión Osigu: Q1,509.02 (1.5%)
+            //a.btn.bg-white-light.col-sm-12.pt-lg.pb-lg.text-md.mt-xl(ng-click="Cashout.cashOutModal()")
+               em.icon-osigu.align-middle
+               span.align-middle.text-green-botom.pt-sm
+                  |CASHOUT
+          .col-md-6
+            .row
+              .col-md-6
+                  h2.mt0.text-md.text-gray-dark Número de Facturas Cobrados:
+                  .space
+                    p.price.text-gray-dark {{datacash}}
+                      span.text-md de 100
+              .col-md-6
+               .mb-lg
+                 knob(knob-data='datacash', knob-options='optcash')
+    
+    //h3.text-22.text-bold.m0.pt.pb31 Detalle          
+    .panel.panel-default
+        .panel-body.p-sm
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                            //col.col-sm-2
+                            col(style="width: 16.66%;")
+                            col(style="width: 16.66%;")
+                            col(style="width: 25%;")
+                            col(style="width: 25%;")
+                            col(style="width: 16.66%;")
+                    thead.table-header
+                        tr
+                            //th.text-center # de Reclamo
+                            th.text-center Código
+                            th.text-center Fecha
+                            th.text-center # Transferencia
+                            th.text-center Monto
+                            th.text-center Acción
+                                
+                    tbody
+                        tr
+                            //td.text-center 487342 
+                            td.text-center 889324
+                            td.text-center 12/01/2016
+                            td.text-center 234872300
+                            td.text-center Q 3,829.00
+                            td.text-center
+                                a(ng-href='#') Descargar PDF
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    a(ng-href='#') Descargar PDF
+                            
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    a(ng-href='#') Descargar PDF
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    a(ng-href='#') Descargar PDF
+                                    
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    a(ng-href='#') Descargar PDF
+                                    
+                            tr
+                                //td.text-center 487342 
+                                td.text-center 889324
+                                td.text-center 12/01/2016
+                                td.text-center 234872300
+                                td.text-center Q 3,829.00
+                                td.text-center
+                                    a(ng-href='#') Descargar PDF
+      
+                            
+    .panel-footer.bg-white.text-center.mt-45.bt0
+        pagination.pagination(total-items='cashoutTotalItems', ng-model='paginationCurrentPage', max-size='5', boundary-links='true', rotate='false')        
+                    
+    
+    //modal controller
+    div.modal
+    
+      script(type='text/ng-template', id='/cash-out-two/modal.html')
+        .modal-header.b0 
+          button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
+          
+        .modal-body.text-center 
+          h4.text-md.text-bold
+           | Confirmación
+          p
+           | Por favor confirme que desea realizar Cash Out por:
+          p.text-hg.text-osigu-primary-blue.text-thin
+           | Q 5,034.94
+          span.text-green-dark.comision
+           | Comisión Osigu: Q 1,509.02 (1.5%)
+          .modal-footer.b0.mt-xl 
+            .row
+              .col-md-6.text-right 
+                button.mr.mb-sm.btn.btn-default.borde-grey-dark(ng-click='cancel()')
+                 | Cancelar
+              .col-md-6.text-left
+                button.mr.mb-sm.btn.btn-success(ng-click='ok()')
+                 | Aceptar

@@ -1,0 +1,39 @@
+// START header
+.app-view-header.mt0
+    h3.text-22.text-bold.m0 Detalle
+// END header
+// START products content
+div(ng-controller="InvoicesListController as invoices")
+    .panel.panel-default
+        .panel-body.p-sm
+            .table-responsive
+                table.table.table-striped.blue-table.table-bordered
+                    colgroup
+                            col.col-sm-3
+                            col.col-sm-3
+                            col.col-sm-2
+                            col.col-sm-2
+                    thead.table-header
+                        tr
+                            th.text-center.text-18 Factura
+                            th.text-center.text-18 Serie
+                            th.text-center.text-18 Fecha
+                            th.text-center.text-18 Total
+                            //-th.text-center.text-18 Acciones
+                    tbody
+                        tr(ng-if='invoices.invoices.length === 0')
+                            td(colspan="5").bl0.br0.text-muted.text-center.text-gray-dark No hay registros disponibles
+                        tr.hover-table(ng-repeat='invoice in invoices.invoices')
+                            td.text-center.text-gray-dark
+                              a(ng-href="{{invoice.file_url}}", ng-click="$root.trackEvent('downloadInvoice', {invoice: invoice.document_number})")
+                               | {{invoice.document_number}}
+                            td.text-center.text-gray-dark 
+                              a(ng-href="{{invoice.file_url}}", ng-click="$root.trackEvent('downloadInvoice', {invoice: invoice.document_number})") {{invoice.document_serial }}
+                            td.text-center.text-gray-dark
+                              a(ng-href="{{invoice.file_url}}", ng-click="$root.trackEvent('downloadInvoice', {invoice: invoice.document_number})") {{invoice.document_date | date: 'dd/MM/yyyy' : 'UTC'}}
+                            td.text-center.text-gray-dark 
+                             a(ng-href="{{invoice.file_url}}", ng-click="$root.trackEvent('downloadInvoice', {invoice: invoice.document_number})") {{invoice.total | currency: 'Q'}}
+                            //-td.bl0.br0.text-center
+                                a(ng-href="{{invoice.file_url}}") Descargar PDF
+    .bg-white.text-center.bt0
+        input-pager(max="{{total_pages}}")
