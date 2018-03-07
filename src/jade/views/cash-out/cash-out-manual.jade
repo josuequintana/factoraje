@@ -43,7 +43,7 @@
                             th.text-center Factura
                             th.text-center Monto
                             th.text-center Cash Out
-                                
+
                     tbody
                         tr(ng-if="claimsListOfTransactions.length === 0")
                             td(colspan="5").bl0.br0.text-muted.text-center No hay registros disponibles
@@ -56,7 +56,7 @@
                               input.c-checkbox(type='checkbox', ng-click="chooseClaim(value)", ng-checked="isClaimSelected(value.id)")
       .panel-footer.bg-white.text-center.mt-45.bt0
         input-pager(max="{{total_pages}}", disabled="{{Cashout.isLoadingResults}}")
-                          
+
       .row
           .col-md-4
           .col-md-3
@@ -69,7 +69,7 @@
                .col-md-6
                  h2.mt.text-lg.text-right.text-osigu-primary-blue.ng-binding.mt0.mb0 {{selectedClaims.subTotal || '0' | currency: "Q" : 2}}
                  //--p.text-right.text-gray-dark {{selectedClaims.fee || '0' | currency: "Q" : 2}}
-                 h2.mt.text-lg.text-right.text-osigu-primary-blue.ng-binding.mt0.mb0 {{selectedClaims.total || '0' | currency:"Q" : 2}}
+                 h2.mt.text-lg.text-right.text-osigu-primary-blue.ng-binding.mt0.mb0 {{Cashout.payment || '0' | currency:"Q" : 2}}
                .col-md-12.p0
                   a.shadow-z1.btn.btn-osigu-green.col-sm-12.pt-lg.pb-lg.text-md(ng-click="Cashout.cashOutModal()")
                     span.align-middle.text-white.pt-sm
@@ -77,12 +77,12 @@
 
     //-modal controller
     div.modal
-    
+
       script(type='text/ng-template', id='/cash-out-manual/modal.html')
-        
-        .modal-header.b0 
+
+        .modal-header.b0
           button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
-          
+
         .modal-body.text-center.pt0.p-xxl
           h4.text-md.text-bold.mt0
            | Confirmación
@@ -92,8 +92,8 @@
            | {{amount | currency:'Q':2 || '0'}}
           span.text-green-dark.comision
            | Comisión : {{commission | currency:'Q':2 || '0'}} (1.5%)
-           
-           
+
+
           .table-responsive.mt
             table.table.mb
                colgroup
@@ -117,15 +117,15 @@
                a.btn.btn-osigu-green.shadow-z1.col-sm-12.pt-lg.pb-lg.text-md(ng-click='ok()')
                  span.align-middle.text-white.pt-sm
                   |Cash Out
-                     
+
 
 
     div.modal
-    
+
       script(type='text/ng-template', id='/cash-out-manual/modal-alert.html')
-        .modal-header.b0 
+        .modal-header.b0
           button.close.esc(type='button', data-dismiss='modal', aria-hidden='true', ng-click='cancel()') ×
-          
+
         .modal-body.text-center.pt0.altert_cashout
           em.fa.fa-meh-o.text-lg.text-osigu-primary-blue
           h3.text-21.text-bold A&uacute;n no est&aacute;s afiliado al servicio de Cash Out
@@ -136,4 +136,3 @@
             .col-md-12.text-center.mt-xl
               button.mr.mb-sm.btn.btn-success(ng-click='ok()')
                   | Aceptar
-            

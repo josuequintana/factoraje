@@ -146,6 +146,7 @@
             $scope.datacash = 0;
             $scope.selectedClaims.subTotal = 0;
             $scope.selectedClaims.list = [];
+            vm.payment = 0;
             // vm.cashOutTransactions = 0;
         }
 
@@ -159,8 +160,8 @@
                 size: size,
                 controllerAs: '$ctrl',
                 resolve: {
-                    amount: function () { return vm.cashOutAmount },
-                    commission: function () { return vm.cashOutCommission }
+                    amount: function () { return $scope.selectedClaims.subTotal },
+                    commission: function () { return $scope.selectedClaims.subTotal * 0.015 }
                 }
             });
 
@@ -225,9 +226,10 @@
         }
 
         function sumCashOutAmount(params) {
-            vm.cashOutAmount = vm.cashOutAmount + params
-            setTempCashOutAmount(params)
-            setComission(params)
+            vm.cashOutAmount = vm.cashOutAmount + params;
+            vm.payment = $scope.selectedClaims.subTotal - ($scope.selectedClaims.subTotal * 0.015);
+            vm.tempAmount = params;
+            vm.cashOutCommission = params * 0.015;
         }
 
         function setTempCashOutAmount(value) {
@@ -236,10 +238,7 @@
 
         function discountTempCashOutAmount() {
             vm.cashOutAmount = vm.cashOutAmount - vm.tempAmount;
-        }
-
-        function setComission(params) {
-            vm.cashOutCommission = params * 0.015;
+            vm.payment = $scope.selectedClaims.subTotal - ($scope.selectedClaims.subTotal * 0.015);
         }
 
         function isClaimSelected(claimId) {
