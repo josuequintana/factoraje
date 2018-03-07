@@ -35,7 +35,7 @@
         // Global settings
         //noinspection JSAnnotator
         $rootScope.app = {
-          name:          'Providers Dashboard',
+          name:          'Factoraje',
           description:   '',
           year:          new Date().getFullYear(),
           views: {
@@ -62,7 +62,7 @@
             brand:         'bg-primary',
             topbar:        'bg-primary'
           }
-        };      
+        };
       }
 
       function loadAndWatch() {
