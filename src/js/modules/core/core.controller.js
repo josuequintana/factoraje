@@ -333,7 +333,7 @@
         }
 
         $rootScope.showToaster = function (type, title, body, timeout) {
-            if (timeout === undefined) {
+            /*if (timeout === undefined) {
                 toaster.pop({
                     type: type,
                     title: title,
@@ -348,7 +348,7 @@
                     showCloseButton: false,
                     timeout: timeout
                 });
-            }
+            }*/
         };
         function getApiBaseUrl() {
             return connectionSettings.protocol + connectionSettings.env + connectionSettings.host + connectionSettings.version
