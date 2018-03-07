@@ -40,7 +40,7 @@
 
         var cashOutDataHistory = [];
         $rootScope.cashOutData = [];
-        
+
         $scope.$on('changePage', function(e, page) {
             if (!vm.isLoadingResults) {
                 vm.getStats({to: $filter('date')(new Date($rootScope.globalQueryParams.date_to), 'dd-MM-yyyy'), from: $filter('date')(new Date($rootScope.globalQueryParams.date_from), 'dd-MM-yyyy'),page: page});
@@ -104,7 +104,7 @@
                 //         "status": "approved,reviewed"
                 //     }, {created_from: externalParams.from, created_to: externalParams.to, page: externalParams.page}))
                 // }),
-                $http.get("/server/cash-response.json"),
+                $http.get("/app/server/cash-response.json"),
 
                 // $http({
                 //     async: true,
@@ -147,7 +147,7 @@
             // vm.cashOutTransactions = 0;
         }
 
-        
+
 
 
         vm.cashOutModal = function (size) {
@@ -161,7 +161,7 @@
                     commission: function () { return vm.cashOutCommission }
                 }
             });
-            
+
         };
         vm.cashOutModalAlert = function (size) {
             var modalInstance = $modal.open({
@@ -184,11 +184,11 @@
                 resetValues();
             };
 
-            
+
             // $scope.cancel = function () {
             //     $modalInstance.dismiss('cancel');
             // };
-            
+
         };
 
         ModalInstanceCtrl.$inject = ['$scope', '$modalInstance', 'commission', 'amount', '$state'];
@@ -202,7 +202,7 @@
                 $scope.selectedClaims.fee = $scope.selectedClaims.fee + claimFee;
                 $scope.selectedClaims.total = $scope.selectedClaims.total + (claim.amount - claimFee);
                 $scope.datacash++;
-                
+
                 sumCashOutAmount(claim.amount)
 
             } else {
@@ -229,7 +229,7 @@
 
         function setTempCashOutAmount(value) {
             vm.tempAmount = value;
-        } 
+        }
 
         function discountTempCashOutAmount() {
             vm.cashOutAmount = vm.cashOutAmount - vm.tempAmount;

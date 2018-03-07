@@ -263,8 +263,8 @@
             vm.isLoadingResults = true;
             $q.all({
                     // upper boxes
-                    dailyCountExpress: $http.get("/server/first.json"),
-                    branchesMetrics: $http.get("/server/metrics.json")
+                    dailyCountExpress: $http.get("/app/server/first.json"),
+                    branchesMetrics: $http.get("/app/server/metrics.json")
                 })
             .then(function(responses) {
                 $scope.selectedTopBranch = "";
@@ -284,7 +284,7 @@
                 $scope.total_claims = 14;
                 $scope.total_revenue = 773622.57;
                 $scope.avg_per_claim = 55258.75;
-                
+
 
                 // Claims line chart
                 vm.dataSet.claims = [];

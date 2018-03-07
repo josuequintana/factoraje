@@ -55,8 +55,8 @@
                     });
 
                 function _getHistory(externalParams) {
-                    return 
-                    $http({
+                    return true;
+                    /*$http({
                         async: true,
                         crossDomain: true,
                         url: $rootScope.getApiBaseUrl() + '/providers/'+ $rootScope.globalQueryParams.loggedProvider.slug +'/cashout/historical',
@@ -72,7 +72,7 @@
                             "size": $rootScope.defaultBulkSize,
                             "sort": $rootScope.globalQueryParams.sort.desc
                         }, externalParams))
-                    }).catch($rootScope.requestHandleError);
+                    }).catch($rootScope.requestHandleError);*/
                 }
             }
 

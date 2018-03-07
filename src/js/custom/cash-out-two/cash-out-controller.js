@@ -53,7 +53,7 @@
         vm.cashOutPercentage = {};
         vm.getSettlements = getSettlements;
         function getStats(externalParams) {
-            $rootScope.$emit('requestStart', {});
+            /*$rootScope.$emit('requestStart', {});
             vm.isLoadingResults = true;
             $q.all([
                 $http({
@@ -95,10 +95,10 @@
                 vm.settlements = historical.content;
                 $scope.total_pages = historical.total_pages;
                 vm.automatic = automatic;
-            })
+            })*/
         }
         function getSettlements(externalParams) {
-            $rootScope.$emit('requestStart', {});
+            /*$rootScope.$emit('requestStart', {});
             vm.isLoadingResults = true;
             $http({
                 async: true,
@@ -120,7 +120,7 @@
                 vm.isLoadingResults = false;
                 vm.settlements = data.data.content;
                 $scope.total_pages = data.data.total_pages;
-            }, $rootScope.requestHandleError);
+            }, $rootScope.requestHandleError);*/
         }
 
 
