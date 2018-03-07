@@ -1,0 +1,163 @@
+{
+   "content":[
+      {
+         "branch_name":"Fayco Bella Aurora 1103",
+         "total_claims":2,
+         "total_amount":42416.82,
+         "average_daily_transactions":0.07,
+         "average_daily_amount":1462.65,
+         "percentage":35.2800,
+         "average_transaction_amount":21208.41,
+         "id": "c9b1b400-1f1c-d5e9-0168-ef11600893b2",
+         "document_date": "2018-02-16T15:32:09Z"
+      },
+      {
+         "branch_name":"Fayco Las Majadas",
+         "total_claims":8,
+         "total_amount":64214.73,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":352.23,
+         "percentage":8.5000,
+         "average_transaction_amount":1276.84,
+         "id": "c2ec3f8b-943c-2de7-cfd6-6190079142f0",
+         "document_date": "2018-02-16T15:56:43Z"
+      },
+      {
+         "branch_name":"Fayco La Cañada",
+         "total_claims":6,
+         "total_amount":35354.72,
+         "average_daily_transactions":0.21,
+         "average_daily_amount":290.34,
+         "percentage":7.0000,
+         "average_transaction_amount":1403.29,
+         "id": "7c5f1738-60e3-796d-09b1-1bbf8129d754",
+         "document_date": "2018-02-16T16:05:05Z"
+      },
+      {
+         "branch_name":"Fayco Concepción",
+         "total_claims":13,
+         "total_amount":64506.80,
+         "average_daily_transactions":0.45,
+         "average_daily_amount":220.92,
+         "percentage":5.3300,
+         "average_transaction_amount":492.83,
+         "id": "e4e42d71-a7b4-1ad4-2aef-aca8b33eafc6",
+         "document_date": "2018-02-19T20:57:09Z"
+      },
+      {
+         "branch_name":"Fayco Javier",
+         "total_claims":8,
+         "total_amount":65053.44,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":196.81,
+         "percentage":4.7500,
+         "average_transaction_amount":713.43,
+         "id": "6054ba91-cd4d-4f51-19d1-e9f32bb005a1",
+         "document_date": "2018-02-19T20:58:09Z"
+      },
+      {
+         "branch_name":"Fayco Los Pinabetes",
+         "total_claims":8,
+         "total_amount":86563.20,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":194.90,
+         "percentage":4.7000,
+         "average_transaction_amount":706.53,
+         "id": "791586b7-9c8a-972c-0794-d555542a11df",
+         "document_date": "2016-11-18T14:36:00Z"
+      },
+      {
+         "branch_name":"Fayco Elgin",
+         "total_claims":8,
+         "total_amount":23565.00,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":186.59,
+         "percentage":4.5000,
+         "average_transaction_amount":676.38,
+         "id": "dec3a92c-8cd6-194b-3cca-98ed20290f4c",
+         "document_date": "2016-11-18T15:03:00Z"
+      },
+      {
+         "branch_name":"Fayco El Encinal",
+         "total_claims":8,
+         "total_amount":42897.82,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":148.20,
+         "percentage":3.5700,
+         "average_transaction_amount":537.23,
+         "id": "d4e796c0-3f7f-1140-665f-91f80a9f5a54",
+         "document_date": "2016-09-17T00:04:00Z"
+      },
+      {
+         "branch_name":"Fayco Santa Amelia",
+         "total_claims":9,
+         "total_amount":65312.18,
+         "average_daily_transactions":0.31,
+         "average_daily_amount":145.39,
+         "percentage":3.5100,
+         "average_transaction_amount":468.46,
+         "id": "0ad4c778-86a0-a7bc-2d5c-65b907d2f1c9",
+         "document_date": "2016-09-17T00:02:43Z"
+      },
+      {
+         "branch_name":"Fayco La Villa Express",
+         "total_claims":9,
+         "total_amount":44015.34,
+         "average_daily_transactions":0.31,
+         "average_daily_amount":138.46,
+         "percentage":3.3400,
+         "average_transaction_amount":446.15,
+         "id": "e08504a5-02c4-0114-1878-df2ad1f0c753",
+         "document_date": "2016-09-17T00:20:16Z"
+      },
+      {
+         "branch_name":"Fayco Bella Aurora",
+         "total_claims":5,
+         "total_amount":56384.81,
+         "average_daily_transactions":0.17,
+         "average_daily_amount":127.27,
+         "percentage":3.0700,
+         "average_transaction_amount":738.16,
+         "id": "9794ae30-49d1-1be2-9938-cdeba73f94c2",
+         "document_date": "2018-02-28T20:42:13Z"
+      },
+      {
+         "branch_name":"Super Fayco",
+         "total_claims":13,
+         "total_amount":80056.57,
+         "average_daily_transactions":0.45,
+         "average_daily_amount":123.47,
+         "percentage":2.9800,
+         "average_transaction_amount":275.43,
+         "id": "3edd3ad4-e43d-48e5-3316-0ab477adbd87",
+         "document_date": "2016-09-17T00:28:00Z"
+      },
+      {
+         "branch_name":"Fayco Mix Comercial",
+         "total_claims":8,
+         "total_amount":63199.25,
+         "average_daily_transactions":0.28,
+         "average_daily_amount":110.32,
+         "percentage":2.6600,
+         "average_transaction_amount":399.91,
+         "id": "cb1b489f-a605-5752-3cfb-77e48057737d",
+         "document_date": "2016-09-17T00:30:00Z"
+      },
+      {
+         "branch_name":"Fayco Multimédica",
+         "total_claims":6,
+         "total_amount":40081.89,
+         "average_daily_transactions":0.21,
+         "average_daily_amount":82.13,
+         "percentage":1.9800,
+         "average_transaction_amount":396.98,
+         "id": "4998efe2-6244-6473-9cc8-fdc7fdd97608",
+         "document_date": "2016-09-17T00:38:00Z"
+      }
+   ],
+   "total_pages":1,
+   "number_of_elements":36,
+   "total_elements":36,
+   "first_page":true,
+   "last_page":true
+}
