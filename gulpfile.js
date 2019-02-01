@@ -1,9 +1,11 @@
 var argv    = require('yargs').argv;
 var usehtml = argv.usehtml;
 var usertl  = argv.usertl;
-var gulp        = require('gulp'),
-    $           = require('gulp-load-plugins')(),
-    gutil       = require('gulp-util'),
+var gulp        = require('gulp');
+var $           = require('gulp-load-plugins')();
+    $.cleanCSS = require('gulp-clean-css');
+    $.htmlBeautify = require('gulp-html-beautify');
+var gutil       = require('gulp-util'),
     gulpsync    = require('gulp-sync')(gulp),
     path        = require('path'),
     glob        = require('glob'),
@@ -166,7 +168,7 @@ function buildMarkup(src, dst, useTplcache, useMin) {
                 )
             )
             .on("error", handleError)
-            .pipe($.htmlPrettify(config.prettify))
+            .pipe($.htmlBeautify(config.prettify))
             // .pipe($.angularHtmlify())
             .pipe(isProduction && useMin ?
                 $.usemin(config.usemin)
