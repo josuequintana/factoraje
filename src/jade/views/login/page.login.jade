@@ -1,34 +1,39 @@
-header.osigu-login.row
+//header.osigu-login.row
   img.svg-osigu.text-center(src="app/img/newlogo.png", alt="App Logo", width="90px", height="65px")
-.container.container-sm.login(ng-controller="loginController")
+.container.container-fluid.login(ng-controller="loginController")
 
   .center-block.mt-xl
     // START panel
 
     .row
-      .panel-body
-        form(role='form').mb-lg
-          .row
-            p.text-center.text-gray-dark.mb-75
-              | Factoraje
-            .box-login
-              .input-group
-                span.input-group-addon
-                  i(aria-hidden="true").fa.fa-user.fa-fw
-                input#InputUser.form-control(type='text', placeholder='Usuario', autocomplete="off", ng-model="form.username")
+      .col-md-4
+      .col-md-4
+        .row
+          .panel-body
+            form(role='form').mb-lg
+              .box-login
+                img.logo(src="app/img/delantos-logo.png", alt="Delantos Logo", width="200px", height="70px")
+              
+                .input-group
+                  span.input-group-addon
+                    i(aria-hidden="true").fa.fa-user.fa-fw
+                  input#InputUser.form-control(type='text', placeholder='Usuario', autocomplete="off", ng-model="form.username")
 
-              .input-group
-                span.input-group-addon
-                  i(aria-hidden="true").fa.fa-lock.fa-fw
-                input#InputPassword1.form-control(type='password', placeholder='Contraseña', ng-model="form.password")
-              .row.loginErrMsg.text-danger(ng-show="$root.showMsgLogin")
-                i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
-                | {{$root.msgLogin}}
-              .form-group.has-feedback
-                button.btn.btn-block.text-white(type='submit', ng-click="submit()") Ingresar
-              .row.loginErrMsgConn.text-danger(ng-show="$root.showMsgLoginConn")
-                i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
-                | {{$root.msgLoginConn}}
+                .input-group
+                  span.input-group-addon
+                    i(aria-hidden="true").fa.fa-lock.fa-fw
+                  input#InputPassword1.form-control(type='password', placeholder='Contraseña', ng-model="form.password")
+                .row.loginErrMsg.text-danger(ng-show="$root.showMsgLogin")
+                  i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
+                  | {{$root.msgLogin}}
+                .form-group.has-feedback
+                  button.btn.btn-block.text-white(type='submit', ng-click="submit()") Entrar
+                .row.loginErrMsgConn.text-danger(ng-show="$root.showMsgLoginConn")
+                  i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
+                  | {{$root.msgLoginConn}}
+      .col-md-4
+
+      
 
 .overlay_loading(ng-show="$root.showLoading")
   .loader
