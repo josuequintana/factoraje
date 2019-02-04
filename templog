@@ -1,0 +1,77 @@
+npm ERR! code ELOCKVERIFY
+npm ERR! Errors were found in your package-lock.json, run  npm install  to fix them.
+npm ERR!     Missing: body-parser@1.15.2
+npm ERR!     Missing: bower@1.7.2
+npm ERR!     Missing: del@1.1.1
+npm ERR!     Missing: express@4.13.3
+npm ERR!     Missing: formidable@1.0.17
+npm ERR!     Missing: glob@5.0.3
+npm ERR!     Missing: gulp-angular-htmlify@2.1.1
+npm ERR!     Missing: gulp-angular-templatecache@1.5.0
+npm ERR!     Missing: gulp-changed@1.2.1
+npm ERR!     Missing: gulp-concat@2.5.2
+npm ERR!     Missing: gulp-connect@2.2.0
+npm ERR!     Missing: gulp-css-flip@0.4.0
+npm ERR!     Missing: gulp-expect-file@0.0.7
+npm ERR!     Missing: gulp-filter@2.0.2
+npm ERR!     Missing: gulp-html-prettify@0.0.1
+npm ERR!     Missing: gulp-if@1.2.5
+npm ERR!     Missing: gulp-ignore@1.2.1
+npm ERR!     Missing: gulp-jade@1.0.0
+npm ERR!     Missing: gulp-jshint@1.9.4
+npm ERR!     Missing: gulp-less@3.0.1
+npm ERR!     Missing: gulp-livereload@3.8.0
+npm ERR!     Missing: gulp-load-plugins@0.8.1
+npm ERR!     Missing: gulp-minify-css@1.0.0
+npm ERR!     Missing: gulp-minify-html@1.0.1
+npm ERR!     Missing: gulp-ng-annotate@0.5.2
+npm ERR!     Missing: gulp-rename@1.2.0
+npm ERR!     Missing: gulp-rev@3.0.1
+npm ERR!     Missing: gulp-rtlcss@0.1.4
+npm ERR!     Missing: gulp-sourcemaps@1.5.1
+npm ERR!     Missing: gulp-sync@0.1.4
+npm ERR!     Missing: gulp-uglify@1.1.0
+npm ERR!     Missing: gulp-usemin@0.3.11
+npm ERR!     Missing: gulp-util@3.0.4
+npm ERR!     Missing: gulp-webserver@0.9.0
+npm ERR!     Missing: jshint-stylish@1.0.1
+npm ERR!     Missing: request@2.69.0
+npm ERR!     Missing: run-sequence@1.0.2
+npm ERR!     Missing: serve-favicon@2.3.0
+npm ERR!     Missing: through2@0.6.3
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/gchinchilla/.npm/_logs/2019-02-01T05_47_43_631Z-debug.log
+
+pm WARN deprecated formidable@1.0.17: Old versions of Formidable are not compatible with the current Node.js; Upgrade to 1.2.0 or later
+npm WARN deprecated bower@1.7.2: This Bower version has SECURITY BUG THAT ALLOWS TO WRITE TO ARBITRARY FILE ON YOUR COMPUTER when you install malicious package. Please upgrade Bower to at least version 1.8.8 if you don't want to get hacked. More info: https://snyk.io/blog/severe-security-vulnerability-in-bowers-zip-archive-extraction/
+npm WARN deprecated gulp-minify-css@1.0.0: Please use gulp-clean-css
+npm WARN deprecated gulp-minify-html@1.0.1: Please use gulp-htmlmin
+npm WARN deprecated gulp-util@3.0.4: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+npm WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+npm WARN deprecated github@0.2.4: 'github' has been renamed to '@octokit/rest' (https://git.io/vNB11)
+npm WARN deprecated gulp-util@0.0.1: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+npm WARN deprecated gulp-footer@1.1.2: Security vulnerability surrounding event-stream, do *NOT* use.
+npm WARN deprecated gulp-util@2.2.20: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+npm WARN deprecated gulp-header@1.8.12: Removed event-stream from gulp-header
+npm WARN deprecated connect@2.17.3: connect 2.x series is deprecated
+npm WARN deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated jade@1.9.2: Jade has been renamed to pug, please install the latest version of pug instead of jade
+npm WARN deprecated node-uuid@1.4.8: Use uuid module instead
+npm WARN deprecated tough-cookie@2.2.2: ReDoS vulnerability parsing Set-Cookie https://nodesecurity.io/advisories/130
+npm WARN deprecated graceful-fs@2.0.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+npm WARN deprecated minimatch@1.0.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated constantinople@3.0.2: Please update to at least constantinople 3.1.1
+npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+npm WARN deprecated hoek@2.16.3: This version is no longer maintained. Please upgrade to the latest version.
+npm WARN deprecated boom@2.10.1: This version is no longer maintained. Please upgrade to the latest version.
+npm WARN deprecated cryptiles@2.0.5: This version is no longer maintained. Please upgrade to the latest version.
+npm WARN deprecated scmp@0.0.3: scmp v2 uses improved core crypto comparison since Node v6.6.0
+npm ERR! code 128
+npm ERR! Command failed: git clone --mirror -q git://github.com/colynb/commonjs-html-prettyprinter.git /root/.npm/_cacache/tmp/git-clone-0fad2630/.git
+npm ERR! fatal: could not create leading directories of '/root/.npm/_cacache/tmp/git-clone-0fad2630/.git'
+npm ERR! 
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-02-01T05_48_45_730Z-debug.log
+
