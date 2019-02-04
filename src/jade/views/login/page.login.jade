@@ -1,23 +1,19 @@
 //header.osigu-login.row
   img.svg-osigu.text-center(src="app/img/newlogo.png", alt="App Logo", width="90px", height="65px")
 .container.container-fluid.login(ng-controller="loginController")
-
   .center-block.mt-xl
-    // START panel
-
     .row
-      .col-md-4
-      .col-md-4
-        .row
+      .col-md-4.col-xs-3
+      .col-md-4.col-xs-6
           .panel-body
             form(role='form').mb-lg
               .box-login
-                img.logo(src="app/img/delantos-logo.png", alt="Delantos Logo", width="200px", height="70px")
+                img.logo.mt-xl(src="app/img/delantos-logo.png", alt="Delantos Logo", width="200px", height="70px")
               
-                .input-group
+                .input-group.mt-xxl
                   span.input-group-addon
                     i(aria-hidden="true").fa.fa-user.fa-fw
-                  input#InputUser.form-control(type='text', placeholder='Usuario', autocomplete="off", ng-model="form.username")
+                  input#InputUser.form-control(type='text', placeholder='Correo electr\u00f3nico', autocomplete="off", ng-model="form.username")
 
                 .input-group
                   span.input-group-addon
@@ -31,6 +27,10 @@
                 .row.loginErrMsgConn.text-danger(ng-show="$root.showMsgLoginConn")
                   i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
                   | {{$root.msgLoginConn}}
+                .row.text-center.forgot
+                  a ¿Olvidaste tu contraseña?
+          .create 
+            a Crear una nueva cuenta
       .col-md-4
 
       

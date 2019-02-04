@@ -1,8 +1,9 @@
 .box-login{
 	width: auto;
 	margin: auto;
-	padding: 2%;
+	padding: 20px;
 	background-color: #fff;
+	border-radius: 5px;
 }
 .osigu-login {
     padding: 21px 20px 7px;
@@ -11,6 +12,7 @@
 		box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.2);
 		background-color: #0d436f;
 }
+
 .login-bg{
 	background-image: none;
 	background-repeat: repeat-x;
@@ -20,6 +22,9 @@
 	padding-top: 0;
 }
 .login{
+	.panel-body {
+		padding: 15px 15px 0 15px!important;
+	}
 	.input-group-addon{
 		background-color: #fff;
 		border: 1px solid #e3e3e3;
@@ -33,8 +38,8 @@
 		display: block;
 		margin: 0 auto;
 	}
-	.input-group{
-		margin: 40px auto 0 auto;
+	.input-group {
+		margin: 15px auto 0 auto;
 	}
 	.form-control{
 		border: 1px solid #e3e3e3;
@@ -50,8 +55,8 @@
 	input{
 		font-size: 20px;
 		line-height: 20px;
-		padding-top: 13px;
-		padding-bottom: 13px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		height: auto;
 		&:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
@@ -61,32 +66,37 @@
     }
 	}
 	button{
-		margin: 40px auto 0px auto;
-		padding: 17px 0;
+		margin: 25px auto 0px auto;
+		padding: 5px 0;
 		font-size: 20px;
 		transition: all 0.3s ease;
+		border-radius: 5px;
 		 -webkit-transition: all 0.3s ease;
 		 -moz-transition: all 0.3s ease;
 		 -o-transition: all 0.3s ease;
 		 -ms-transition: all 0.3s ease;
 		 background-color: #3873a3;
 		&:hover{
-			
+			color: #dedede;
 			box-shadow: none;
 			transition: all 0.3s ease;
-		 -webkit-transition: all 0.3s ease;
-		 -moz-transition: all 0.3s ease;
-		 -o-transition: all 0.3s ease;
-		 -ms-transition: all 0.3s ease;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			-o-transition: all 0.3s ease;
+			-ms-transition: all 0.3s ease;
 		}
 	}
-	.forgot{
-		a{
-			margin: 50px auto;
+	.forgot {
+		a {
+			margin: 15px auto 20px auto;
 			display: block;
 			float: none;
 			font-size: 14px;
-			text-decoration: underline;
+			color: #d1d1d1;
+			&:hover {
+				cursor: pointer;
+				text-decoration: underline;
+			}
 		}
 	}
 }
@@ -189,3 +199,16 @@
 		overflow-y: hidden;
 	}
 }
+
+.mt-xxl {
+	margin-top: 55px!important;
+}
+
+.create {
+	text-align: center;
+	a {
+		color: #fff;
+		font-size: 15px;
+	}
+}
+
