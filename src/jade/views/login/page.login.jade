@@ -1,51 +1,44 @@
-header.osigu-login.row
+//header.osigu-login.row
   img.svg-osigu.text-center(src="app/img/newlogo.png", alt="App Logo", width="90px", height="65px")
-.container.container-sm.login(ng-controller="loginController")
-
+.container.container-fluid.login(ng-controller="loginController")
   .center-block.mt-xl
-    // START panel
-
     .row
-      .panel-body
-        form(role='form').mb-lg
-          .row
-            p.text-center.text-gray-dark.mb-75
-              | Factoraje
-            .box-login
-              .input-group
-                span.input-group-addon
-                  i(aria-hidden="true").fa.fa-user.fa-fw
-                input#InputUser.form-control(type='text', placeholder='Usuario', autocomplete="off", ng-model="form.username")
+      .col-xs-1.col-sm-3.col-md-4
+      .col-xs-10.col-sm-6.col-md-4
+          .panel-body
+            form(role='form').mb-lg
+              .box-login
+                img.logo.mt-xl(src="app/img/delantos-logo.png", alt="Delantos Logo", width="200px", height="70px")
+              
+                .input-group.mt-xxl
+                  span.input-group-addon
+                    i(aria-hidden="true").fa.fa-user.fa-fw
+                  input#InputUser.form-control(type='text', placeholder='Correo electr\u00f3nico', autocomplete="off", ng-model="form.username")
 
-              .input-group
-                span.input-group-addon
-                  i(aria-hidden="true").fa.fa-lock.fa-fw
-                input#InputPassword1.form-control(type='password', placeholder='Contraseña', ng-model="form.password")
-              .row.loginErrMsg.text-danger(ng-show="$root.showMsgLogin")
-                i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
-                | {{$root.msgLogin}}
-              .form-group.has-feedback
-                button.btn.btn-block.text-white(type='submit', ng-click="submit()") Ingresar
-              .row.loginErrMsgConn.text-danger(ng-show="$root.showMsgLoginConn")
-                i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
-                | {{$root.msgLoginConn}}
+                .input-group
+                  span.input-group-addon
+                    i(aria-hidden="true").fa.fa-lock.fa-fw
+                  input#InputPassword1.form-control(type='password', placeholder='Contraseña', ng-model="form.password")
+                .row.loginErrMsg.text-danger(ng-show="$root.showMsgLogin")
+                  i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
+                  | {{$root.msgLogin}}
+                .form-group.has-feedback
+                  button.btn.btn-block.text-white(type='submit', ng-click="submit()") Entrar
+                .row.loginErrMsgConn.text-danger(ng-show="$root.showMsgLoginConn")
+                  i(aria-hidden="true").fa.fa-exclamation-triangle &nbsp;
+                  | {{$root.msgLoginConn}}
+                .row.text-center.forgot
+                  a ¿Olvidaste tu contraseña?
+          .create 
+            a Crear una nueva cuenta
+      .col-xs-1.col-sm-3.col-md-4
 
 .overlay_loading(ng-show="$root.showLoading")
   .loader
-    //- svg#wave(data-name='Layer 1', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 960 987.92')
-    //-   defs
-    //-     style.
-    //-       .cls-1{fill:#1FFFA9;}
-    //-   path#Line_1.cls-1(d='M376,84.71,766,474.64l-392,392c-13.12,13.12,7.25,33.52,20.38,20.38L796.54,484.83a14.62,14.62,0,0,0,0-20.38L396.42,64.33C383.31,51.22,362.9,71.58,376,84.71Z')
-    //-   path#Line_2.cls-1(d='M709.77,464.39l-380-380c-13.12-13.12-33.52,7.25-20.38,20.38L679.19,474.59,309.36,844.42c-13.12,13.12,7.25,33.52,20.38,20.38l380-380A14.62,14.62,0,0,0,709.77,464.39Z')
-    //-   path#Line_3.cls-1(d='M623,464.34,265.19,106.54c-13.12-13.12-33.52,7.25-20.38,20.38L592.42,474.54,244.71,822.25c-13.12,13.12,7.25,33.52,20.38,20.38L623,484.73A14.62,14.62,0,0,0,623,464.34Z')
-    //-   path#Line_4.cls-1(d='M242.91,777.87,536.22,484.56a14.62,14.62,0,0,0,0-20.38l-289.3-289.3c-13.12-13.12-33.52,7.25-20.38,20.38L505.65,474.37,222.53,757.49C209.41,770.61,229.78,791,242.91,777.87Z')
-    //-   path#Line_5.cls-1(d='M220.75,713.34,449.46,484.63a14.62,14.62,0,0,0,0-20.38L220.95,235.73c-13.12-13.12-33.52,7.25-20.38,20.38L418.89,474.44,200.37,693C187.25,706.08,207.61,726.48,220.75,713.34Z')
-
-    svg#loader-1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='40px', height='40px', viewbox='0 0 40 40', enable-background='new 0 0 40 40', xml:space='preserve')
+    svg#loader-1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='40px', height='40px', viewBox='0 0 40 40', enable-background='new 0 0 40 40', xml:space='preserve')
       path(opacity='0.2', fill='#000', d='M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946\
       s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634\
       c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z')
       path(fill='#000', d='M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0\
       C22.32,8.481,24.301,9.057,26.013,10.047z')
-      animatetransform(attributetype='xml', attributename='transform', type='rotate', from='0 20 20', to='360 20 20', dur='0.5s', repeatcount='indefinite')
+        animatetransform(attributeType='xml', attributeName='transform', type='rotate', from='0 20 20', to='360 20 20', dur='0.5s', repeatCount='indefinite')

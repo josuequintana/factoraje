@@ -1,7 +1,7 @@
 nav.navbar.topnavbar(role='navigation', ng-controller="HeaderNavController as header")
   .navbar-header
-    a.navbar-brand.pl25(ui-sref='app.dashboard')
-      img.brand-logo(src="app/img/newlogo.png", alt="App Logo", style="width: 90px;height: 65px;margin-left: 50px;")
+    a.navbar-brand.pl25.text-center(ui-sref='app.dashboard')
+      img.brand-logo(src="app/img/dLogo.png", alt="App Logo", style="width: 50px; height: 60px; margin-top: 0; display: inline-block; ")
     .mobile-toggles
       a(href='', ng-click="app.sidebar.isOffscreen = !app.sidebar.isOffscreen").sidebar-toggle
         em.fa.fa-navicon

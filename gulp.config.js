@@ -71,7 +71,7 @@ module.exports = function($, usehtml) {
     },
     usemin: {
       path: '.',
-      css: [$.minifyCss(), 'concat', $.rev()],
+      css: [$.cleanCSS({compatibility: 'ie8'}), 'concat', $.rev()],
       // html: [$.minifyHtml({empty: true})],
       vendor: [$.uglify( {preserveComments:'some'} ), $.rev()],
       js: [$.ngAnnotate(), $.uglify( {preserveComments:'some'} ), $.rev()]
