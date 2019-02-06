@@ -18,6 +18,7 @@
         $scope.block = false;
 
         function initiate() {
+            $rootScope.showLoading = false;
             if (Boolean($rootScope.authorizationString)) {
                 return $window.location.href = '/#/app/dashboard';
             }
@@ -26,12 +27,11 @@
         initiate();
 
         $rootScope.showMsgLogin = false;
-        $rootScope.showLoading = false;
-
         $rootScope.showMsgLoginConn = false;
 
         $scope.submit = function(){
             $scope.block = true;
+            $rootScope.showLoading = true;
             $rootScope.globalQueryParams.date_from = Date.parse((function() {var d = new Date(); return new Date(d.getFullYear(), parseInt(d.getMonth()) - 1, d.getDate(), 0,0,0,0)}()));
             $rootScope.globalQueryParams.date_to = Date.parse(new Date());
             $rootScope.logged=true;
@@ -43,7 +43,10 @@
                 slug: "test",
                 expires: 500000
             };
-            return $window.location.href = '/#/app/dashboard'   
+            $timeout(function(){
+                return $window.location.href = '/#/app/dashboard';
+            }, 500, false)
+            
 
         }
     }
